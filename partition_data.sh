@@ -1,3 +1,4 @@
+#!/bin/bash
 #--------------------------
 # partitions dataset into a 
 #   * training set

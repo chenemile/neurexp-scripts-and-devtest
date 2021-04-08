@@ -1,3 +1,4 @@
+#!/bin/bash
 #-----------------------------------------------------
 # inserts a space between each token of the input,
 # where a token is either a char, a morphophonological
@@ -12,7 +13,7 @@
 #    dirname="/home/echen41/neural-experiments-thesis/make-dataset/data"
 #fi
 
-for f in $1; do
+for f in $1/*.tsv; do
 #	surface=${f%.in}.char
 
 #	sed 's,\([A-Z]\), \1,g; s,\([a-z]\), \1,g;	s, ,,' $f > $surface
