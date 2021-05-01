@@ -3,7 +3,7 @@
 :author: Emily Chen
 :date:   2021
 
-USAGE:  python2.7 scripts/get_word_error_rate.py /nas/data/yupik/finite_state_morphology/uppercase.fomabin devset/src-dev.txt devset/tgt-dev.txt [PREDICTIONS.TXT] 
+USAGE:  python2.7 get_word_error_rate.py /nas/data/yupik/finite_state_morphology/uppercase.fomabin devtest/src-dev.txt devtest/tgt-dev.txt [PREDICTIONS.TXT] 
 
 '''
 import argparse
@@ -72,12 +72,12 @@ else:
 
             if len(sf_in_common) == 0:
                 num_wrong += 1
-                items_wrong.append("item ID " + str(i) + ": " + surface_forms[i])
+                items_wrong.append("item ID " + str(i+1) + ": " + surface_forms[i])
 
-    #print("----------------")
-    #print("problem children")
-    #print("----------------")
-    #pprint.pprint(items_wrong)
+    print("----------------")
+    print("problem children")
+    print("----------------")
+    pprint.pprint(items_wrong)
 
     print("---------------")
     print("word error rate")
