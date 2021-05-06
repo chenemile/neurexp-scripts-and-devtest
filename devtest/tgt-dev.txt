@@ -428,12 +428,12 @@ m e t e g h l l u g (N) ^ – g h l l a g (N→N) ^ [Abs.Sg]
 l e g a n (PTCL) = n g u q
 p u u (N) ^ –– i q e (N→V) ^ [Ind.Intr] ^ [3Sg]
 e s t u (V) ^ @ ~f l a a t a g h (V→V) ^ [Ctmp.Intr] ^ [4Sg]
-a y a - y a - l u u k (XCLM)
-a y a - y a - l u u k (XCLM)
-k u - u u - i i y a (XCLM)
-k u - u u - i i y a (XCLM)
+a y a - y a - l u u k (PTCL)
+a y a - y a - l u u k (PTCL)
+k u - u u - i i y a (PTCL)
+k u - u u - i i y a (PTCL)
 t e n g e (V) ^ ~ – q a g h t e (V→V) ^ ~ (g) a q e (V→V) ^ [Sbrd.Intr] ^ [1Sg]
-q g h u u g h (XCLM)
+q g h u u g h (PTCL)
 t e n g e (V) ^ ~ – q a g h (V→V) ^ [Sbrd.Intr] ^ [4Sg]
 a g a (PTCL) = n g u q
 q a g h l e g (V) ^ ~ (g) a q e (V→V) ^ [Sbrd.Intr] ^ [4Sg]
@@ -469,12 +469,12 @@ e l l n g a (PRO.Abs.3Sg)
 a g a (PTCL)
 e s t u (V) ^ [Ctmp.Intr] ^ [4Sg]
 m e t e g h l l u g (N) ^ [Abs.Sg]
-a y a - y a - l u u k (XCLM)
-a y a - y a - l u u k (XCLM)
-k u - u u - i i y a (XCLM)
-k u - u u - i i y a (XCLM)
+a y a - y a - l u u k (PTCL)
+a y a - y a - l u u k (PTCL)
+k u - u u - i i y a (PTCL)
+k u - u u - i i y a (PTCL)
 t e n g e (V) ^ ~ – q a g h t e (V→V) ^ ~ (g) a q e (V→V) ^ [Sbrd.Intr] ^ [1Sg]
-q g h u u g h (XCLM)
+q g h u u g h (PTCL)
 t e n g e (V) ^ ~ – q a g h t e (V→V) ^ ~ (g) a q e (V→V) ^ [Sbrd.Intr] ^ [4Sg]
 a g a (PTCL)
 q a g h l e g (V) ^ ~ a g h t e (V→V) ^ ~ (g) a q e (V→V) ^ [Ptcp.Intr.3Sg] = n g u q
@@ -994,13 +994,13 @@ i m a g h (N) ^ [Loc.Pl] = n g u q
 p i (V) ^ [Intrg.Intr] ^ [3Sg]
 q i y a (V) ^ @ ~ : (i/u) m a g h * (V→QUANTQUAL) ^ [4Sg]
 m a k e t e (V) ^ [Opt.Pres.Trns] ^ [2Pl.1Sg] ^ [Voc.Sg]
-n g a a y (XCLM)
-n g a a y (XCLM)
-n g a a y (XCLM)
+n g a a y (PTCL)
+n g a a y (PTCL)
+n g a a y (PTCL)
 m a k e t e (V) ^ [Opt.Pres.Trns] ^ [2Pl.1Sg] ^ [Voc.Sg]
-n g a a y (XCLM)
-n g a a y (XCLM)
-n g a a y (XCLM)
+n g a a y (PTCL)
+n g a a y (PTCL)
+n g a a y (PTCL)
 t a w a n l e n g u q (PTCL) = n g u q
 u g a (DEM.ADV) ^ + t a (DEM→N) ^ [Loc.3SgPoss.Sg]
 n a n e v g a g h (N) ^ – g h l l a g (N→N) ^ [Abs.Sg]
@@ -1022,13 +1022,13 @@ l e g a n (PTCL)
 q i y a a q e (V) ^ [Ptcp.Intr] ^ [3Sg]
 a g h n a g h (N) ^ [Abs.Sg]
 m a k e t e (V) ^ [Opt.Pres.Trns] ^ [2Pl.1Sg] ^ [Voc.Sg]
-n g a a y (XCLM)
-n g a a y (XCLM)
-n g a a y (XCLM)
+n g a a y (PTCL)
+n g a a y (PTCL)
+n g a a y (PTCL)
 m a k e t e (V) ^ [Opt.Pres.Trns] ^ [2Pl.1Sg] ^ [Voc.Sg]
-n g a a y (XCLM)
-n g a a y (XCLM)
-n g a a y (XCLM)
+n g a a y (PTCL)
+n g a a y (PTCL)
+n g a a y (PTCL)
 a g u ^ [DEM.PRO.Rel.Sg]
 p i (V) ^ @ ~f l a a t a g h (V→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
 m a k e t e (V) ^ [Opt.Pres.Trns.2Sg.3Sg]
@@ -1778,7 +1778,7 @@ g g u t e (N) ^ [Abs.Sg]
 u n a ^ [DEM.PRO.Abs.Sg]
 i i k e (V) ^ @ ~ – (g) k a g h (V→N) ^ [Abs.Sg]
 e s g h a q a g h (V) ^ [Opt.Pres.Trns] ^ [1Pl.3Sg]
-k i i - i (XCLM)
+k i i - i (PTCL)
 i g h u (N) ^ [Abs.3SgPoss.Pl] = t u q
 a a - a (PTCL)
 n u n m a a k w (PTCL) ^ – s q u g h h a g h * (N→N) ^ [Abs.Sg]
@@ -2091,7 +2091,7 @@ a t e g h (N) ^ @ ~f y u g (N→V) ^ @ – n g h i t e (V→V) ^ [Cnsq1.Trns] ^ 
 u g h a r r e (N) ^ – t u q a g h (N→N) ^ [Abs.Sg]
 i g h s a n i (V) ^ @ ~ : (u) t e (V→N) ^ –– i i g h (N→V) ^ @ ~ : (u) t e (V→V) ^ @ ~ : (i/u) m a (V→V) ^ [Ptcp.Trns] ^ [3Sg.1Sg]
 t e f a a y (PTCL)
-k a - a (XCLM)
+k a - a (PTCL)
 i y e (N) ^ [Abs.1SgPoss.Sg]
 a q n i g h (V) ^ [Ind.Intr] ^ [3Sg]
 m i n g u g (V) ^ @ – n g h i t e (V→V) ^ [Sbrd.Trns] ^ [_.3Sg]
@@ -2304,11 +2304,11 @@ a t k u g (N) ^ [Abs.1SgPoss.Sg]
 l l a n g a q a (PTCL)
 u n a g h s i i g h w a g h (N) ^ [Abs.Sg] = q u n
 n u u v e (V) ^ @ ~ : (u) t e (V→V) ^ [Sbrd.Intr] ^ [4Sg]
-h a (XCLM)
-h a (XCLM)
-h a (XCLM)
-h a (XCLM)
-h a a (XCLM)
+h a (PTCL)
+h a (PTCL)
+h a (PTCL)
+h a (PTCL)
+h a a (PTCL)
 a g a (PTCL) = n g u q
 s i k u g h a a g h (N) ^ [Abs.Pl]
 u m i i l e g (N) ^ [Abs.3PlPoss.Sg]
@@ -2622,11 +2622,11 @@ q a k m a (DEM.ADV)
 U n u u s i s u k a n g a (N) ^ [Rel.Sg]
 s a k i (N) ^ –– i i (N→V) ^ @ ~ : (u) t e (V→V) ^ @ ~ – (g) k e (V→N) ^ [Abs.Sg]
 i p e g (V) ^ + s a g h a g h (CmpdVbl) ^ ^ @ ~ : (i/u) m a (V→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
-h e e (XCLM)
-h e e (XCLM)
-h e e (XCLM)
-h e e (XCLM)
-h e e (XCLM)
+h e e (PTCL)
+h e e (PTCL)
+h e e (PTCL)
+h e e (PTCL)
+h e e (PTCL)
 l l a a g h a n (PTCL) = n g u q
 u n a a m i (PTCL)
 a g h t e (V) ^ @ ~f y a g h (V→V) ^ [Cond.Trns] ^ [3Sg.1Sg]
@@ -2679,7 +2679,7 @@ s a (V) ^ [Intrg.Intr.2Sg]
 p i n i t u n (PTCL)
 p i (V) ^ [Intrg.Intr] ^ [3Sg]
 k a n u (DEM.PRO) ^ [Rel.Sg]
-h a a m (XCLM)
+h a a m (PTCL)
 T a t i (N) ^ [Abs.Sg]
 p i n i t u n (PTCL)
 p i (V) ^ [Intrg.Intr] ^ [3Sg]
@@ -2740,9 +2740,9 @@ P a t a (N) ^ [Rel.Sg]
 p e t u g a g h (N) ^ [Abs.3SgPoss.Sg]
 T a t i (N) ^ [Abs.Sg]
 q a m i y e (N) ^ [Prl.Du]
-h u (XCLM)
+h u (PTCL)
 T a t i (N) ^ [Abs.Sg]
-h u (XCLM)
+h u (PTCL)
 q e l a g h (V) ^ [Ind.Trns] ^ [3Pl.3Sg]
 T a t i (N) ^ [Rel.Sg]
 a g h t u g h (V) ^ [Ind.Trns] ^ [3Sg.3Pl]
@@ -2757,10 +2757,10 @@ e l p e k (PRO.AbsRel.2Sg) = l l u
 K a n u (N) ^ [Abs.Sg]
 p i (V) ^ [Intrg.Intr] ^ [3Sg]
 I p i (N) ^ [Rel.Sg]
-h u (XCLM)
+h u (PTCL)
 T a t i (N) ^ [Abs.Sg]
-h u (XCLM)
-h u (XCLM)
+h u (PTCL)
+h u (PTCL)
 q e l a g h (V) ^ [Ind.Trns] ^ [3Pl.3Sg]
 T a t i (N) ^ [Abs.Sg]
 a l l a (PTCL)
@@ -3258,7 +3258,7 @@ n a v e k (WH) = t u q
 p i (V) ^ [Intrg.Intr] ^ [3Sg]
 I p i (N) ^ [Abs.Sg]
 p i i g h (N) ^ [Abs.Sg]
-wh a - a (XCLM)
+wh a - a (PTCL)
 p i (V) ^ [Intrg.Intr] ^ [3Sg]
 T i n a n a (N) ^ [Rel.Sg]
 a a p t e (V) ^ [Ind.Trns] ^ [3Sg.3Sg]
@@ -4352,14 +4352,14 @@ p i (V) ^ @ ~ : (i/u) m a (V→V) ^ [Ptcp.Trns] ^ [3Sg.1Sg]
 a t u g h (V) ^ @ ~ : (u) t e (V→V) ^ [Opt.Pres.Trns] ^ [1Du.2Sg]
 a t u g h (V) ^ @ ~ : (u) t e (V→V) ^ @ ~ : (i/u) m a (V→V) ^ [Ptcp.Trns] ^ [3Sg.1Sg]
 t a a g k e n (PTCL)
-q u n g (XCLM)
-q u g h l u n g (XCLM)
-q u n g (XCLM)
-q u g h l u n g (XCLM)
-q u n g (XCLM)
-q u g h l u n g (XCLM)
-q u n g (XCLM)
-q u g h l u n g (XCLM)
+q u n g (PTCL)
+q u g h l u n g (PTCL)
+q u n g (PTCL)
+q u g h l u n g (PTCL)
+q u n g (PTCL)
+q u g h l u n g (PTCL)
+q u n g (PTCL)
+q u g h l u n g (PTCL)
 m e t e g h l l u g (N) ^ – g h r u g (N→N) ^ [Abs.Sg] = n g u q
 a g h u l a (V) ^ – g h l l a g u (V→V) ^ – g h t e (V→V) ^ [Ind.Intr] ^ [3Du]
 p u u g h t e (V) ^ [Cnsq1.Trns] ^ [3Sg.4Sg]
@@ -4377,7 +4377,7 @@ l l i i g h (V) ^ [Ind.Intr] ^ [3Sg]
 i t e g a g h (N) ^ [Abs.2SgPoss.Sg]
 i n g l u (N) ^ [Abs.3SgPoss.Sg]
 q u u l v a n i (PTCL)
-q u g h l u n g (XCLM)
+q u g h l u n g (PTCL)
 s i k i g (N) ^ – g h h a g h * (N→N) ^ [Abs.Sg]
 a s i (N) ^ [Prl.3DuPoss.Pl]
 a g h u l a (V) ^ @ – l g h i i (V→N) ^ [Rel.Sg]
@@ -4909,8 +4909,8 @@ y u g (N) ^ [Abs.Pl]
 p i l a g (V) ^ @ ~f v i g (V→N) ^ [Abs.Sg]
 k a y u s i g h (V) ^ ~ i (V→V) ^ –– i q e (V→V) ^ [Ind.Intr] ^ [3Sg]
 p i l a g (V) ^ @ ~f v i g (V→N) ^ [Loc.Sg]
-i i - i i - u u u (XCLM)
-i i - i i - u u u (XCLM)
+i i - i i - u u u (PTCL)
+i i - i i - u u u (PTCL)
 y u g (N) ^ [Abs.Sg]
 a q n i g h t e (V) ^ @ ~ : (i/u) m a (V→V) ^ [Ind.Intr] ^ [3Sg]
 e s g h a p a g (V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
@@ -5096,7 +5096,7 @@ s u n a (PTCL)
 u n a ^ [DEM.PRO.Abs.Sg]
 k e t f i i g h w a g h t e (V) ^ [Ptcp.Intr] ^ [3Sg]
 k a y u (N) ^ ~f n g i i g h h a g h * (N→N) ^ [Abs.Sg]
-q i n u (V) ^ @ ~f n a (V→V) ^ ~sf – g h h a l e g (V→XCLM)
+q i n u (V) ^ @ ~f n a (V→V) ^ ~sf – g h h a l e g (V→PTCL)
 u z i v e (V) ^ + a g h a g h t e (V→V) ^ ~ a g h t e (V→V) ^ [Ind.Intr] ^ [3Sg]
 u v i t a (N) ^ [Loc.3SgPoss.Sg]
 wh a a w h a (PTCL) = n g u q
@@ -5143,7 +5143,7 @@ wh a a (PTCL)
 k a y u (N) ^ ~f n g i i g h h a g h * (N→N) ^ [Abs.Sg]
 n a k e n (WH)
 k e t f a g h (V) ^ ~ a g h t e (V→V) ^ @ ~f l a a t a g h (V→V) ^ [Ind.Intr] ^ [3Sg]
-q i n u (V) ^ @ ~f n a (V→V) ^ ~sf – g h h a l e g (V→XCLM)
+q i n u (V) ^ @ ~f n a (V→V) ^ ~sf – g h h a l e g (V→PTCL)
 i g h u (N) ^ [Rel.3DuPoss.Du]
 u v i t a (N) ^ [Loc.3SgPoss.Sg]
 i g l e g h a (V) ^ + (s) t a (V→N) ^ – g h l l a g (N→N) ^ [Abs.Sg]
@@ -7909,7 +7909,7 @@ k a y u s i i t e (V) ^ @ ~f y a g h t u g h (V→V) ^ [Opt.Pres.Trns] ^ [2Sg.1S
 n e q e (N) ^ – g h l l a g (N→N) ^ ~ : (ng) u (N→V) ^ [Ind.Intr] ^ [1Sg]
 k a y u s i i t e (V) ^ @ ~f y a g h t u g h (V→V) ^ [Opt.Pres.Trns] ^ [2Sg.1Sg]
 a v e l g h a q i i n a g h (V) ^ [Ind.Trns] ^ [3Sg.3Sg]
-u g u m i (EMO) ^ @ ~f n a g h (EMO→V) ^ @ ~f n a (V→V) ^ ~sf – g h h a l e g (V→XCLM)
+u g u m i (EMO) ^ @ ~f n a g h (EMO→V) ^ @ ~f n a (V→V) ^ ~sf – g h h a l e g (V→PTCL)
 n a q a m (PTCL)
 i q l i g h (V) ^ [Rel.2SgPoss.Sg]
 e s g h a p a g (V) ^ [Opt.Pres.Trns] ^ [2Sg.1Sg]

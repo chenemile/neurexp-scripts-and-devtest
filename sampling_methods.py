@@ -31,7 +31,6 @@ def make_partofspeech_dictionary_count(d):
                           "postural root" :0,
                           "numeral"       :0,
                           "positional"    :0,
-                          "exclamation"   :0,
                           "wh word" :0,
                           "quantqual"     :0,
                           "pronoun"       :0,
@@ -57,8 +56,6 @@ def make_partofspeech_dictionary_count(d):
             partofspeech_count["numeral"] += 1 
         elif "(AREA)" in key:
             partofspeech_count["positional"] += 1 
-        elif "(XCLM)" in key:
-            partofspeech_count["exclamation"] += 1 
         elif "(WH)" in key:
             partofspeech_count["wh word"] += 1 
         elif "(QUANTQUAL)" in key:
@@ -102,7 +99,6 @@ def make_dictionary_counts(d):
     pos_roots  = {}
     num_roots  = {}
     area_roots = {}
-    xclm_roots = {}
     wh_roots   = {}
     qq_roots   = {}
     pronouns   = {}
@@ -141,8 +137,6 @@ def make_dictionary_counts(d):
             num_roots[key] = d[key]
         elif "(AREA)" in key:
             area_roots[key] = d[key]
-        elif "(XCLM)" in key:
-            xclm_roots[key] = d[key]
         elif "(WH)" in key:
             wh_roots[key] = d[key]
         elif "(QUANTQUAL)" in key:
@@ -199,7 +193,7 @@ def make_dictionary_counts(d):
     return noun_roots, verb_roots, particles, \
            emo_roots, pos_roots, \
            num_roots, area_roots, \
-           xclm_roots, wh_roots, qq_roots, \
+           wh_roots, qq_roots, \
            pronouns, vocatives, \
            dem_anaphors, dem_adv_roots, dem_pro_roots, demonstratives, \
            noun_deriv, verb_deriv, \
@@ -289,7 +283,7 @@ def make_all_probability_dicts(morpheme_dist):
     noun_root_dist, verb_root_dist, particle_dist, \
     emo_root_dist, pos_root_dist, \
     num_root_dist, area_root_dist, \
-    xclm_root_dist, wh_root_dist, qq_root_dist, \
+    wh_root_dist, qq_root_dist, \
     pronoun_dist, vocative_dist, \
     dem_anaphor_dist, dem_adv_dist, dem_pro_dist, demonstrative_dist, \
     noun_deriv_dist, verb_deriv_dist, \
@@ -302,7 +296,7 @@ def make_all_probability_dicts(morpheme_dist):
     all_dist_dicts = [noun_root_dist, verb_root_dist, particle_dist, \
                       emo_root_dist, pos_root_dist, \
                       num_root_dist, area_root_dist, \
-                      xclm_root_dist, wh_root_dist, qq_root_dist, \
+                      wh_root_dist, qq_root_dist, \
                       pronoun_dist, vocative_dist, \
                       dem_anaphor_dist, dem_adv_dist, dem_pro_dist, demonstrative_dist, \
                       noun_deriv_dist, verb_deriv_dist, \
@@ -427,7 +421,7 @@ def sampling_1A(sample_num, morpheme_dist, deriv_count_dist):
     noun_root_probabilities, verb_root_probabilities, particle_probabilities, \
     emo_root_probabilities, pos_root_probabilities, \
     num_root_probabilities, area_root_probabilities, \
-    xclm_root_probabilities, wh_root_probabilities, qq_root_probabilities, \
+    wh_root_probabilities, qq_root_probabilities, \
     pronoun_probabilities, vocative_probabilities, \
     dem_anaphor_probabilities, dem_adv_probabilities, dem_pro_probabilities, demonstrative_probabilities, \
     noun_deriv_probabilities, verb_deriv_probabilities, \
@@ -449,7 +443,7 @@ def sampling_1A(sample_num, morpheme_dist, deriv_count_dist):
             partofspeech = random.choice(list(partofspeech_count_probabilities.keys()))
 
         # sample the number of derivational morphemes to include
-        if partofspeech == "particle" or partofspeech == "exclamation" or \
+        if partofspeech == "particle" or \ 
            partofspeech == "wh word" or partofspeech == "quantqual" or \
            partofspeech == "pronoun" or partofspeech == "vocative" or \
            partofspeech == "demonstrative" or partofspeech == "dem pronoun root":
@@ -481,9 +475,6 @@ def sampling_1A(sample_num, morpheme_dist, deriv_count_dist):
         elif partofspeech == "positional":
             if area_root_probabilities:
                 root = random.choice(list(area_root_probabilities.keys()))
-        elif partofspeech == "exclamation":
-            if xclm_root_probabilities:
-                root = random.choice(list(xclm_root_probabilities.keys()))
         elif partofspeech == "wh word":
             if wh_root_probabilities:
                 root = random.choice(list(wh_root_probabilities.keys()))
@@ -602,7 +593,7 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
     noun_root_probabilities, verb_root_probabilities, particle_probabilities, \
     emo_root_probabilities, pos_root_probabilities, \
     num_root_probabilities, area_root_probabilities, \
-    xclm_root_probabilities, wh_root_probabilities, qq_root_probabilities, \
+    wh_root_probabilities, qq_root_probabilities, \
     pronoun_probabilities, vocative_probabilities, \
     dem_anaphor_probabilities, dem_adv_probabilities, dem_pro_probabilities, demonstrative_probabilities, \
     noun_deriv_probabilities, verb_deriv_probabilities, \
@@ -630,7 +621,7 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
                 break
 
         # sample the number of derivational morphemes
-        if partofspeech == "particle" or partofspeech == "exclamation" or \
+        if partofspeech == "particle" or \ 
            partofspeech == "wh word" or partofspeech == "quantqual" or \
            partofspeech == "pronoun" or partofspeech == "vocative" or \
            partofspeech == "demonstrative" or partofspeech == "dem pronoun root":
@@ -682,11 +673,6 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
         elif partofspeech == "positional":
             for root in area_root_probabilities: 
                 total += area_root_probabilities[root]
-                if sample_n < total:
-                    break
-        elif partofspeech == "exclamation":
-            for root in xclm_root_probabilities: 
-                total += xclm_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "wh word":
@@ -878,7 +864,7 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
     noun_root_probabilities, verb_root_probabilities, particle_probabilities, \
     emo_root_probabilities, pos_root_probabilities, \
     num_root_probabilities, area_root_probabilities, \
-    xclm_root_probabilities, wh_root_probabilities, qq_root_probabilities, \
+    wh_root_probabilities, qq_root_probabilities, \
     pronoun_probabilities, vocative_probabilities, \
     dem_anaphor_probabilities, dem_adv_probabilities, dem_pro_probabilities, demonstrative_probabilities, \
     noun_deriv_probabilities, verb_deriv_probabilities, \
@@ -907,7 +893,7 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
 
         # sample the number of derivational morphemes to include
         num_deriv = 0
-        if partofspeech != "particle" and partofspeech != "exclamation" and \
+        if partofspeech != "particle" and \ 
            partofspeech != "wh word" and partofspeech != "quantqual" and \
            partofspeech != "pronoun" and partofspeech != "vocative" and \
            partofspeech != "demonstrative" and partofspeech != "dem pronoun root":
@@ -975,11 +961,6 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
         elif partofspeech == "positional":
             for root in area_root_probabilities: 
                 total += area_root_probabilities[root]
-                if sample_n < total:
-                    break
-        elif partofspeech == "exclamation":
-            for root in xclm_root_probabilities: 
-                total += xclm_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "wh word":
@@ -1169,7 +1150,7 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
     noun_root_probabilities, verb_root_probabilities, particle_probabilities, \
     emo_root_probabilities, pos_root_probabilities, \
     num_root_probabilities, area_root_probabilities, \
-    xclm_root_probabilities, wh_root_probabilities, qq_root_probabilities, \
+    wh_root_probabilities, qq_root_probabilities, \
     pronoun_probabilities, vocative_probabilities, \
     dem_anaphor_probabilities, dem_adv_probabilities, dem_pro_probabilities, demonstrative_probabilities, \
     noun_deriv_probabilities, verb_deriv_probabilities, \
@@ -1233,11 +1214,6 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
         elif partofspeech == "positional":
             for root in area_root_probabilities: 
                 total += area_root_probabilities[root]
-                if sample_n < total:
-                    break
-        elif partofspeech == "exclamation":
-            for root in xclm_root_probabilities: 
-                total += xclm_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "wh word":
