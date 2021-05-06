@@ -443,7 +443,7 @@ def sampling_1A(sample_num, morpheme_dist, deriv_count_dist):
             partofspeech = random.choice(list(partofspeech_count_probabilities.keys()))
 
         # sample the number of derivational morphemes to include
-        if partofspeech == "particle" or \ 
+        if partofspeech == "particle" or \
            partofspeech == "wh word" or partofspeech == "quantqual" or \
            partofspeech == "pronoun" or partofspeech == "vocative" or \
            partofspeech == "demonstrative" or partofspeech == "dem pronoun root":
