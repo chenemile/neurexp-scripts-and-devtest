@@ -43,37 +43,37 @@ def make_partofspeech_dictionary_count(d):
 
     for key in d:
         if key.endswith("(N)"):
-            partofspeech_count["noun"] += 1 
+            partofspeech_count["noun"] += 1
         elif key.endswith("(V)"):
-            partofspeech_count["verb"] += 1 
+            partofspeech_count["verb"] += 1
         elif "(PTCL)" in key:
-            partofspeech_count["particle"] += 1 
+            partofspeech_count["particle"] += 1
         elif "(EMO)" in key:
-            partofspeech_count["emotional root"] += 1 
+            partofspeech_count["emotional root"] += 1
         elif "(POS)" in key or "(POS→QUANTQUAL)" in key:
-            partofspeech_count["postural root"] += 1 
+            partofspeech_count["postural root"] += 1
         elif "(NUM)" in key:
-            partofspeech_count["numeral"] += 1 
+            partofspeech_count["numeral"] += 1
         elif "(AREA)" in key:
-            partofspeech_count["positional"] += 1 
+            partofspeech_count["positional"] += 1
         elif "(WH)" in key:
-            partofspeech_count["wh word"] += 1 
+            partofspeech_count["wh word"] += 1
         elif "(QUANTQUAL)" in key:
-            partofspeech_count["quantqual"] += 1 
+            partofspeech_count["quantqual"] += 1
         elif "(PRO" in key:
-            partofspeech_count["pronoun"] += 1 
+            partofspeech_count["pronoun"] += 1
         elif "(VOC" in key:
-            partofspeech_count["vocative"] += 1 
+            partofspeech_count["vocative"] += 1
         elif key.startswith("[Anaphor]"):
-            partofspeech_count["dem anaphor"] += 1 
+            partofspeech_count["dem anaphor"] += 1
         elif key.endswith("(DEM.ADV)"):
-            partofspeech_count["dem adverb root"] += 1 
+            partofspeech_count["dem adverb root"] += 1
         elif key.endswith("(DEM.PRO)"):
-            partofspeech_count["dem pronoun root"] += 1 
+            partofspeech_count["dem pronoun root"] += 1
         elif "(DEM" in key:
-            partofspeech_count["demonstrative"] += 1 
+            partofspeech_count["demonstrative"] += 1
 
-    return partofspeech_count 
+    return partofspeech_count
 
 
 def make_dictionary_counts(d):
@@ -86,7 +86,7 @@ def make_dictionary_counts(d):
                        of non-N and non-V roots (EMO, POS, etc.)
     :type  zero_deriv: dict
 
-    :return: tuple of dicts 
+    :return: tuple of dicts
 
     Creates dictionary counts for each type of morpheme,
     based on the given corpus.
@@ -209,7 +209,7 @@ def make_prior_probability_dict(d):
               type of morpheme)
     :type  d: dict
 
-    :return: dict 
+    :return: dict
 
     Creates a prior probability dictionary, i.e.
     the dartboard, for the given morpheme type.
@@ -258,7 +258,7 @@ def make_tag_count_dict(d):
             #                    replace("@","").replace("–","").\
             #                    replace("~","").replace(":","")
 
-            # 
+            #
             if morpheme in tag_count:
                 tag_count[morpheme][tag] = d[key]
             else:
@@ -270,7 +270,7 @@ def make_tag_count_dict(d):
 
 def make_all_probability_dicts(morpheme_dist):
     '''
-    :param morpheme_dist: counts for all of the morphemes 
+    :param morpheme_dist: counts for all of the morphemes
     :type  morpheme_dist: dict
 
     :return: list of dicts
@@ -311,26 +311,26 @@ def make_all_probability_dicts(morpheme_dist):
     #        P(noun root R | root type NOUN) = P(root type NOUN | root R)*P(root R) / P(root type NOUN)
     #
     #        where P(root type NOUN | root R) = (# words with root R of root type NOUN) / (# words with root R)
-    #                  NUMERATOR:   num words where the root is a noun root and that root is this particular root 
-    #                  DENOMINATOR: num words where the root is this particular root 
+    #                  NUMERATOR:   num words where the root is a noun root and that root is this particular root
+    #                  DENOMINATOR: num words where the root is this particular root
     #
     #              P(root R) = (# words with root R) / (total # words)
-    #                  NUMERATOR:   num words where the root is this particular root 
-    #                  DENOMINATOR: total number of words in the corpus 
+    #                  NUMERATOR:   num words where the root is this particular root
+    #                  DENOMINATOR: total number of words in the corpus
     #
     #              P(root type NOUN) = (# words with root type NOUN) / (total # words)
-    #                  NUMERATOR:   num words where the root is a noun root 
-    #                  DENOMINATOR: total number of words in the corpus 
+    #                  NUMERATOR:   num words where the root is a noun root
+    #                  DENOMINATOR: total number of words in the corpus
     #
     #        therefore P(noun root R | root type NOUN) = P(root type NOUN | root R)*(# words with root R) / (# words with root type NOUN)
-    
+
     # make a type count dictionary to facilitate calculation of P(B|A)
     tag_count_dictionary = make_tag_count_dict(morpheme_dist)
 
     all_probability_dicts = []
 
     for d in all_dist_dicts:
-        
+
         probability_dict = {} # set up the corresponding probability dictionary
 
         # calculate the relevant probability for each key
@@ -341,7 +341,7 @@ def make_all_probability_dicts(morpheme_dist):
 
                 prob_A = sum(tag_count_dictionary[morpheme].values())
                 prob_B  = sum(d.values())
-    
+
                 numerator = d[key]
                 denominator = prob_A
                 prob_BA = numerator / denominator
@@ -371,9 +371,9 @@ def generate_samples(sample_num, sampling_method, all_params):
     '''
     :param sample_num:      number of samples to create
     :type  sample_num:      int
-    :param sampling_method: self-explanatory 
+    :param sampling_method: self-explanatory
     :type  sampling_method: str
-    :param all_params:      parameters required by the sampling methods 
+    :param all_params:      parameters required by the sampling methods
     :type  all_params:      list
 
     Wrapper function for calling the sampling methods.
@@ -452,7 +452,7 @@ def sampling_1A(sample_num, morpheme_dist, deriv_count_dist):
             if deriv_count_probabilities:
                 num_deriv = random.choice(list(deriv_count_probabilities.keys()))
 
-        # sample a root 
+        # sample a root
         root = ""
         if partofspeech == "noun":
             if noun_root_probabilities:
@@ -526,7 +526,7 @@ def sampling_1A(sample_num, morpheme_dist, deriv_count_dist):
                     sample.append("^" + morpheme)
 
             # sample the derivational morphemes
-            if num_deriv > 0: 
+            if num_deriv > 0:
                 for m in range(num_deriv):
                     if ("N)" in sample[-1] or "(AREA)" in sample[-1]) and "DEM" not in sample[-1]:
                         if noun_deriv_probabilities:
@@ -551,7 +551,7 @@ def sampling_1A(sample_num, morpheme_dist, deriv_count_dist):
                 if qq_infl_probabilities:
                     im = random.choice(list(qq_infl_probabilities.keys()))
                     sample.append("^" + im)
- 
+
             # cleanup: remove explicit NULL morphemes (from zero derivations)
             cleaned_sample = [morpheme for morpheme in sample if "NULL" not in morpheme]
 
@@ -571,8 +571,8 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
     :param deriv_count_dist:    counts of the number of words with
                                 N derivational morphemes
     :type  deriv_count_dist:    dict
-    :param enclitic_count_dist: counts of the number of words with N enclitics 
-                               
+    :param enclitic_count_dist: counts of the number of words with N enclitics
+
     :type  enclitic_count_dist: dict
 
     :return: list
@@ -621,7 +621,7 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
                 break
 
         # sample the number of derivational morphemes
-        if partofspeech == "particle" or \ 
+        if partofspeech == "particle" or \
            partofspeech == "wh word" or partofspeech == "quantqual" or \
            partofspeech == "pronoun" or partofspeech == "vocative" or \
            partofspeech == "demonstrative" or partofspeech == "dem pronoun root":
@@ -630,88 +630,88 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
             num_deriv = 0
             total = 0
             sample_n = random.random()
-            for deriv_count in deriv_count_probabilities: 
+            for deriv_count in deriv_count_probabilities:
                 total += deriv_count_probabilities[deriv_count]
                 if sample_n < total:
                     num_deriv = deriv_count
                     break
 
-        # sample a root 
+        # sample a root
         root  = ""
         total = 0
         sample_n = random.random()
         if partofspeech == "noun":
-            for root in noun_root_probabilities: 
+            for root in noun_root_probabilities:
                 total += noun_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "verb":
-            for root in verb_root_probabilities: 
+            for root in verb_root_probabilities:
                 total += verb_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "particle":
-            for root in particle_probabilities: 
+            for root in particle_probabilities:
                 total += particle_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "emotional root":
-            for root in emo_root_probabilities: 
+            for root in emo_root_probabilities:
                 total += emo_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "postural root":
-            for root in pos_root_probabilities: 
+            for root in pos_root_probabilities:
                 total += pos_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "numeral":
-            for root in num_root_probabilities: 
+            for root in num_root_probabilities:
                 total += num_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "positional":
-            for root in area_root_probabilities: 
+            for root in area_root_probabilities:
                 total += area_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "wh word":
-            for root in wh_root_probabilities: 
+            for root in wh_root_probabilities:
                 total += wh_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "quantqual":
-            for root in qq_root_probabilities: 
+            for root in qq_root_probabilities:
                 total += qq_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "pronoun":
-            for root in pronoun_probabilities: 
+            for root in pronoun_probabilities:
                 total += pronoun_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "vocative":
-            for root in vocative_probabilities: 
+            for root in vocative_probabilities:
                 total += vocative_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "demonstrative":
-            for root in demonstrative_probabilities: 
+            for root in demonstrative_probabilities:
                 total += demonstrative_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem anaphor":
-            for root in dem_anaphor_probabilities: 
+            for root in dem_anaphor_probabilities:
                 total += dem_anaphor_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem adverb root":
-            for root in dem_adv_probabilities: 
+            for root in dem_adv_probabilities:
                 total += dem_adv_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem pronoun root":
-            for root in dem_pro_probabilities: 
+            for root in dem_pro_probabilities:
                 total += dem_pro_probabilities[root]
                 if sample_n < total:
                     break
@@ -757,15 +757,15 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
                             num_deriv = 0
                         sample.append("^" + morpheme)
                         break
-    
+
             # sample the derivational morphemes
-            if num_deriv > 0: 
+            if num_deriv > 0:
                 for m in range(num_deriv):
                     if ("N)" in sample[-1] or "(AREA)" in sample[-1]) and \
                         "DEM" not in sample[-1]:
                         total = 0
                         sample_n = random.random()
-                        for dm in noun_deriv_probabilities: 
+                        for dm in noun_deriv_probabilities:
                             total += noun_deriv_probabilities[dm]
                             if sample_n < total:
                                 break
@@ -773,17 +773,17 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
                     elif "V)" in sample[-1] and "DEM" not in sample[-1]:
                         total = 0
                         sample_n = random.random()
-                        for dm in verb_deriv_probabilities: 
+                        for dm in verb_deriv_probabilities:
                             total += verb_deriv_probabilities[dm]
                             if sample_n < total:
                                 break
                         sample.append("^" + dm)
-    
+
             # sample the inflectional morpheme
             if "N)" in sample[-1] or "(AREA)" in sample[-1] or "(DEM.PRO)" in sample[-1]:
                 total = 0
                 sample_n = random.random()
-                for im in noun_infl_probabilities: 
+                for im in noun_infl_probabilities:
                     total += noun_infl_probabilities[im]
                     if sample_n < total:
                         sample.append("^" + im)
@@ -793,7 +793,7 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
                   "STATIVE)" in sample[-1] or "ACTIVE)" in sample[-1]:
                 total = 0
                 sample_n = random.random()
-                for im in verb_infl_probabilities: 
+                for im in verb_infl_probabilities:
                     total += verb_infl_probabilities[im]
                     if sample_n < total:
                         sample.append("^" + im)
@@ -801,7 +801,7 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
             elif "QUANTQUAL)" in sample[-1]:
                 total = 0
                 sample_n = random.random()
-                for im in qq_infl_probabilities: 
+                for im in qq_infl_probabilities:
                     total += qq_infl_probabilities[im]
                     if sample_n < total:
                         sample.append("^" + im)
@@ -811,7 +811,7 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
             num_enclitic = 0
             total = 0
             sample_n = random.random()
-            for enclitic_count in enclitic_count_probabilities: 
+            for enclitic_count in enclitic_count_probabilities:
                 total += enclitic_count_probabilities[enclitic_count]
                 if sample_n < total:
                     num_enclitic = enclitic_count
@@ -821,15 +821,15 @@ def sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist
             if num_enclitic > 0:
                 total = 0
                 sample_n = random.random()
-                for encl in enclitic_probabilities: 
+                for encl in enclitic_probabilities:
                     total += enclitic_probabilities[encl]
                     if sample_n < total:
                         sample.append("^" + encl)
                         break
-     
+
             # cleanup: remove explicit NULL morphemes (from zero derivations)
             cleaned_sample = [morpheme for morpheme in sample if "NULL" not in morpheme]
-    
+
             samples.append(''.join(cleaned_sample))
             counter += 1
 
@@ -874,8 +874,8 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
     enclitic_probabilities = [d for d in make_all_probability_dicts(morpheme_dist)]
 
     samples = []
-    counter = 0 
-    while counter < sample_num: 
+    counter = 0
+    while counter < sample_num:
         if counter % 100000 == 0:
             print("sampling " + str(counter) + " out of " + str(sample_num) + "...")
 
@@ -893,7 +893,7 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
 
         # sample the number of derivational morphemes to include
         num_deriv = 0
-        if partofspeech != "particle" and \ 
+        if partofspeech != "particle" and \
            partofspeech != "wh word" and partofspeech != "quantqual" and \
            partofspeech != "pronoun" and partofspeech != "vocative" and \
            partofspeech != "demonstrative" and partofspeech != "dem pronoun root":
@@ -918,88 +918,88 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
 
             total = 0
             sample_n = random.random()
-            for deriv_count in deriv_count_after_stem_probabilities: 
+            for deriv_count in deriv_count_after_stem_probabilities:
                 total += subdict[deriv_count]
                 if sample_n < total:
                     num_deriv = int(deriv_count[2])
                     break
 
-        # sample a root 
+        # sample a root
         root  = ""
         total = 0
         sample_n = random.random()
         if partofspeech == "noun":
-            for root in noun_root_probabilities: 
+            for root in noun_root_probabilities:
                 total += noun_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "verb":
-            for root in verb_root_probabilities: 
+            for root in verb_root_probabilities:
                 total += verb_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "particle":
-            for root in particle_probabilities: 
+            for root in particle_probabilities:
                 total += particle_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "emotional root":
-            for root in emo_root_probabilities: 
+            for root in emo_root_probabilities:
                 total += emo_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "postural root":
-            for root in pos_root_probabilities: 
+            for root in pos_root_probabilities:
                 total += pos_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "numeral":
-            for root in num_root_probabilities: 
+            for root in num_root_probabilities:
                 total += num_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "positional":
-            for root in area_root_probabilities: 
+            for root in area_root_probabilities:
                 total += area_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "wh word":
-            for root in wh_root_probabilities: 
+            for root in wh_root_probabilities:
                 total += wh_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "quantqual":
-            for root in qq_root_probabilities: 
+            for root in qq_root_probabilities:
                 total += qq_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "pronoun":
-            for root in pronoun_probabilities: 
+            for root in pronoun_probabilities:
                 total += pronoun_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "vocative":
-            for root in vocative_probabilities: 
+            for root in vocative_probabilities:
                 total += vocative_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "demonstrative":
-            for root in demonstrative_probabilities: 
+            for root in demonstrative_probabilities:
                 total += demonstrative_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem anaphor":
-            for root in dem_anaphor_probabilities: 
+            for root in dem_anaphor_probabilities:
                 total += dem_anaphor_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem adverb root":
-            for root in dem_adv_probabilities: 
+            for root in dem_adv_probabilities:
                 total += dem_adv_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem pronoun root":
-            for root in dem_pro_probabilities: 
+            for root in dem_pro_probabilities:
                 total += dem_pro_probabilities[root]
                 if sample_n < total:
                     break
@@ -1045,15 +1045,15 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
                             num_deriv = 0
                         sample.append("^" + morpheme)
                         break
-    
+
             # sample the derivational morphemes
-            if num_deriv > 0: 
+            if num_deriv > 0:
                 for m in range(num_deriv):
                     if ("N)" in sample[-1] or "(AREA)" in sample[-1]) and \
                         "DEM" not in sample[-1]:
                         total = 0
                         sample_n = random.random()
-                        for dm in noun_deriv_probabilities: 
+                        for dm in noun_deriv_probabilities:
                             total += noun_deriv_probabilities[dm]
                             if sample_n < total:
                                 break
@@ -1061,17 +1061,17 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
                     elif "V)" in sample[-1] and "DEM" not in sample[-1]:
                         total = 0
                         sample_n = random.random()
-                        for dm in verb_deriv_probabilities: 
+                        for dm in verb_deriv_probabilities:
                             total += verb_deriv_probabilities[dm]
                             if sample_n < total:
                                 break
                         sample.append("^" + dm)
-    
+
             # sample the inflectional morpheme
             if "N)" in sample[-1] or "(AREA)" in sample[-1] or "(DEM.PRO)" in sample[-1]:
                 total = 0
                 sample_n = random.random()
-                for im in noun_infl_probabilities: 
+                for im in noun_infl_probabilities:
                     total += noun_infl_probabilities[im]
                     if sample_n < total:
                         sample.append("^" + im)
@@ -1081,7 +1081,7 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
                   "STATIVE)" in sample[-1] or "ACTIVE)" in sample[-1]:
                 total = 0
                 sample_n = random.random()
-                for im in verb_infl_probabilities: 
+                for im in verb_infl_probabilities:
                     total += verb_infl_probabilities[im]
                     if sample_n < total:
                         sample.append("^" + im)
@@ -1089,7 +1089,7 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
             elif "QUANTQUAL)" in sample[-1]:
                 total = 0
                 sample_n = random.random()
-                for im in qq_infl_probabilities: 
+                for im in qq_infl_probabilities:
                     total += qq_infl_probabilities[im]
                     if sample_n < total:
                         sample.append("^" + im)
@@ -1099,7 +1099,7 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
             num_enclitic = 0
             total = 0
             sample_n = random.random()
-            for enclitic_count in enclitic_count_probabilities: 
+            for enclitic_count in enclitic_count_probabilities:
                 total += enclitic_count_probabilities[enclitic_count]
                 if sample_n < total:
                     num_enclitic = enclitic_count
@@ -1109,15 +1109,15 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
             if num_enclitic > 0:
                 total = 0
                 sample_n = random.random()
-                for encl in enclitic_probabilities: 
+                for encl in enclitic_probabilities:
                     total += enclitic_probabilities[encl]
                     if sample_n < total:
                         sample.append("^" + encl)
                         break
-     
+
             # cleanup: remove explicit NULL morphemes (from zero derivations)
             cleaned_sample = [morpheme for morpheme in sample if "NULL" not in morpheme]
-    
+
             samples.append(''.join(cleaned_sample))
             counter += 1
 
@@ -1132,13 +1132,13 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
     :type  morpheme_dist:             dict
     :param enclitic_count_dist:       counts of the number of words with N enclitics
     :type  enclitic_count_dist:       dict
-    :param pos_counts_after_pos_dist: counts the number of times each POS tag follows 
+    :param pos_counts_after_pos_dist: counts the number of times each POS tag follows
                                       each POS tag
     :type  pos_counts_after_pos_dist: nested dict
 
     :return: list
 
-    Samples using Variation 3A: 
+    Samples using Variation 3A:
 
     '''
     # make all of the relevant probability dictionaries
@@ -1160,8 +1160,8 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
     enclitic_probabilities = [d for d in make_all_probability_dicts(morpheme_dist)]
 
     samples = []
-    counter = 0 
-    while counter < sample_num: 
+    counter = 0
+    while counter < sample_num:
         if counter % 100000 == 0:
             print("sampling " + str(counter) + " out of " + str(sample_num) + "...")
 
@@ -1177,82 +1177,82 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                 partofspeech = part_of_speech
                 break
 
-        # sample a root 
+        # sample a root
         root  = ""
         total = 0
         sample_n = random.random()
         if partofspeech == "noun":
-            for root in noun_root_probabilities: 
+            for root in noun_root_probabilities:
                 total += noun_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "verb":
-            for root in verb_root_probabilities: 
+            for root in verb_root_probabilities:
                 total += verb_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "particle":
-            for root in particle_probabilities: 
+            for root in particle_probabilities:
                 total += particle_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "emotional root":
-            for root in emo_root_probabilities: 
+            for root in emo_root_probabilities:
                 total += emo_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "postural root":
-            for root in pos_root_probabilities: 
+            for root in pos_root_probabilities:
                 total += pos_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "numeral":
-            for root in num_root_probabilities: 
+            for root in num_root_probabilities:
                 total += num_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "positional":
-            for root in area_root_probabilities: 
+            for root in area_root_probabilities:
                 total += area_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "wh word":
-            for root in wh_root_probabilities: 
+            for root in wh_root_probabilities:
                 total += wh_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "quantqual":
-            for root in qq_root_probabilities: 
+            for root in qq_root_probabilities:
                 total += qq_root_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "pronoun":
-            for root in pronoun_probabilities: 
+            for root in pronoun_probabilities:
                 total += pronoun_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "vocative":
-            for root in vocative_probabilities: 
+            for root in vocative_probabilities:
                 total += vocative_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "demonstrative":
-            for root in demonstrative_probabilities: 
+            for root in demonstrative_probabilities:
                 total += demonstrative_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem anaphor":
-            for root in dem_anaphor_probabilities: 
+            for root in dem_anaphor_probabilities:
                 total += dem_anaphor_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem adverb root":
-            for root in dem_adv_probabilities: 
+            for root in dem_adv_probabilities:
                 total += dem_adv_probabilities[root]
                 if sample_n < total:
                     break
         elif partofspeech == "dem pronoun root":
-            for root in dem_pro_probabilities: 
+            for root in dem_pro_probabilities:
                 total += dem_pro_probabilities[root]
                 if sample_n < total:
                     break
@@ -1267,13 +1267,13 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
 
                     # first sample the morpheme's part of speech
                     pos_counts_after_pos_probabilities = make_prior_probability_dict(pos_counts_after_pos_dist[partofspeech])
-    
+
                     total = 0
                     sample_n = random.random()
                     for pos in pos_counts_after_pos_probabilities:
                         total += pos_counts_after_pos_probabilities[pos]
                         if sample_n < total:
-                            partofspeech = pos 
+                            partofspeech = pos
                             break
 
                     # then sample the morpheme itself
@@ -1291,9 +1291,9 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                             morpheme_probability_dict = num_deriv_probabilities
                         elif "(DEM→" in partofspeech:
                             morpheme_probability_dict = dem_deriv_probabilities
-    
+
                         chosen_morpheme = "()"
-    
+
                         while partofspeech != "(" + chosen_morpheme.rsplit("(", 1)[1]:
                             total = 0
                             sample_n = random.random()
@@ -1303,10 +1303,10 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                                 if sample_n < total:
                                     chosen_morpheme = morpheme
                                     break
-        
+
                         sample.append("^" + chosen_morpheme)
                         partofspeech = "(" + chosen_morpheme.rsplit("(", 1)[1]
-    
+
                     if "→" not in partofspeech:
                         break
 
@@ -1315,7 +1315,7 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                 if "N)" in sample[-1] or "(AREA)" in sample[-1] or "(DEM.PRO)" in sample[-1]:
                     total = 0
                     sample_n = random.random()
-                    for im in noun_infl_probabilities: 
+                    for im in noun_infl_probabilities:
                         total += noun_infl_probabilities[im]
                         if sample_n < total:
                             sample.append("^" + im)
@@ -1325,7 +1325,7 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                       "STATIVE)" in sample[-1] or "ACTIVE)" in sample[-1]:
                     total = 0
                     sample_n = random.random()
-                    for im in verb_infl_probabilities: 
+                    for im in verb_infl_probabilities:
                         total += verb_infl_probabilities[im]
                         if sample_n < total:
                             sample.append("^" + im)
@@ -1333,7 +1333,7 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                 elif "QUANTQUAL)" in sample[-1]:
                     total = 0
                     sample_n = random.random()
-                    for im in qq_infl_probabilities: 
+                    for im in qq_infl_probabilities:
                         total += qq_infl_probabilities[im]
                         if sample_n < total:
                             sample.append("^" + im)
@@ -1363,21 +1363,21 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                     # sample whether or not to suffix an enclitic
                     add_enclitic_probabilities = make_prior_probability_dict(pos_counts_after_pos_dist["enclitic"][previous_morpheme_tag])
                     add_enclitic = False
-    
+
                     total = 0
                     sample_n = random.random()
-                    for yesno in add_enclitic_probabilities: 
+                    for yesno in add_enclitic_probabilities:
                         total += add_enclitic_probabilities[yesno]
                         if sample_n < total:
                             if yesno == "YES":
                                 add_enclitic = True
                             break
-    
+
                     # sample the enclitic if 'add_enclitic' == True
                     if add_enclitic == True:
                         total = 0
                         sample_n = random.random()
-                        for encl in enclitic_probabilities: 
+                        for encl in enclitic_probabilities:
                             total += enclitic_probabilities[encl]
                             if sample_n < total:
                                 sample.append("^" + encl)
