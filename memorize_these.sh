@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get particles
-grep "PtclTag" $1 | sed -e 's/\([a-z]*\) *PtclTag.*/\1(PTCL)\t\1/g' > memorize.txt
+grep "PtclTag;" $1 | sed -e 's/\([a-z]*\) *PtclTag.*/\1(PTCL)\t\1/g' > memorize.txt
 
 # get pronouns
 grep "(PRO.*Enclitic" $1 | sed -e 's/\([a-z]*(PRO\.[A-Za-z_]*\.[0-9][A-Z][a-z])\):\([a-z]*\) *Enclitic; /\1\t\2\n/g' >> memorize.txt
