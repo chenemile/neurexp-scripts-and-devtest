@@ -40,6 +40,20 @@ grep "(DEM.ADV.Abl_Mod):" $1 | sed -e "s/\([a-z']*(DEM\.ADV.Abl_Mod)\):\([a-z']*
 grep "(DEM.VOC.Sg):" $1 | sed -e "s/\([a-z']*(DEM.VOC\.Sg)\):\([a-z]*\) *Enclitic; /\1\t\2\n/g" >> memorize.txt # (DEM.VOC.Sg)
 grep "(DEM.VOC.Pl):" $1 | sed -e "s/\([a-z']*(DEM.VOC\.Pl)\):\([a-z]*\) *Enclitic; /\1\t\2\n/g" >> memorize.txt # (DEM.VOC.Pl)
 
+# anaphoric demonstratives
+grep "^i.*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\t/\ttaz/g" >> memorize.txt
+
+grep "^aa.*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\t/\tt/g" >> memorize.txt
+grep "^uu.*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\tuu/\ttaa/g" >> memorize.txt
+
+grep "^a[^a].*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\t/\tta/g" >> memorize.txt
+grep "^u[^u].*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\tu/\ttaa/g" >> memorize.txt
+grep "^m.*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\t/\tta/g" >> memorize.txt
+
+grep "^s.*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\t/\tte/g" >> memorize.txt
+
+grep "^[fghklnpqrtvwyz].*(DEM.*" memorize.txt | sed -e "s/^/[Anaphor]^/g" | sed -e "s/\t/\ttes/g" >> memorize.txt
+
 # cleanup
 sed -i 's/^ *//' memorize.txt
 sed -i 's/ *!.*//g' memorize.txt

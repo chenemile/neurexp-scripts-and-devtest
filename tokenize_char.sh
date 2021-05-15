@@ -34,7 +34,7 @@ for f in $1/*.tsv; do
 	sed 's,^f,f ,' | \
 	sed 's,hh,h h,' | \
 
-	sed 's,\([adegiklmnpqrtuvyz]\), \1,g' | \
+	sed 's,\([abdcegijklmnopqrtuvxyz]\), \1,g' | \
 	sed 's,\([A-Z]\),\1 ,g' | \
 	sed 's, ,,' | \
 	sed "s,', ',g" | \
@@ -54,7 +54,8 @@ for f in $1/*.tsv; do
 	sed -e :1 -e 's,\(([^)]*\)[[:space:]],\1,g;t1' | \
     sed 's,\([0-9]\)\([a-z]\),\1 \2,g' | \
     sed 's,\([0-9]\)-,\1 -,g' | \
-    sed 's,\([0-9]\)(,\1 (,g' > $underlying
+    sed 's,\([0-9]\)(,\1 (,g' | \
+	sed 's, \[Anaphor,\[Anaphor,g' > $underlying
 
     # tokenizes the surface forms, split by space
 	cut -f2 $f | \
