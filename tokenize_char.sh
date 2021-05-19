@@ -34,7 +34,7 @@ for f in $1/*.tsv; do
 	sed 's,^f,f ,' | \
 	sed 's,hh,h h,' | \
 
-	sed 's,\([abdcegijklmnopqrtuvwxyz]\), \1,g' | \
+	sed 's,\([abdcegijklmnopqrtuvxyz]\), \1,g' | \
 	sed 's,\([A-Z]\),\1 ,g' | \
 	sed 's, ,,' | \
 	sed "s,', ',g" | \
