@@ -885,7 +885,7 @@ t u u n e (V) ^ @ ~f y a g h (V→V) ^ [Ind.Trns] ^ [1Sg.3Sg]
 i g h s a k e (V) ^ [Ind.Trns] ^ [3Sg.3Sg]
 u n g i p a g h a g h (N) ^ [Loc.Pl] = n g u q
 i m a g h (N) ^ [Loc.Pl]
-t a a k e (V) ^ [Ind.Intr.3Pl] = n g u q
+t a a k e (V) ^ [Ind.Intr] ^ [3Pl] = n g u q
 a g h n a g h a g h * (N) ^ [Abs.Pl]
 t a l l i m a t (NUM) ^ [Abs.Sg]
 a g h u l a g h q u g h (V) ^ @ ~ : (i/u) m a (V→V) ^ [Ptcp.Intr] ^ [3Pl]
@@ -946,7 +946,7 @@ p i (V) ^ [Intrg.Intr] ^ [3Sg]
 e n t a q u n (PTCL)
 a m a (PTCL)
 p e k n e g h (N) ^ @ ~f y a g h (N→V) ^ @ ~ – (g) k a g h (V→N) ^ [Abs.Sg]
-i t e g h (V) ^ [Sbrd.Intr.4Sg] = n g u q
+i t e g h (V) ^ [Sbrd.Intr] ^ [4Sg] = n g u q
 a g h n a g h (N) ^ – g h h a g h * (N→N) ^ [Abs.Sg]
 [Anaphor] ^ u n a (DEM.PRO.Abs.Sg)
 e l n g a a t a l l (PTCL)
@@ -1292,12 +1292,12 @@ k a l e r e q e (V) ^ [Opt.Pres.Trns] ^ [2Pl.3Sg]
 t e r u g i (V) ^ @ ~ – (g) k a g h (V→N) ^ [Abs.Sg]
 w h a n g a (PRO.AbsRel.1Sg)
 i p u g u t a g h (N) ^ [Abs.1SgPoss.Sg]
-a t u g h (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+a t u g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 n e g h (V) ^ @ ~f –
 m a l l a g h (N) ^ [Abs.Pl]
 q e r n g u g h t e (V) ^ [Ctmp.Trns] ^ [1Sg.3Pl]
 k u m e g a g h (V) ^ ~ : (u) s i g h (V→N) ^ [Abs.Sg]
-a t u g h (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+a t u g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 i g a q e (V) ^ [Opt.Pres.Trns] ^ [2Pl.3Sg]
 k u m e g a g h (V) ^ ~ : (u) s i g h (V→N) ^ [Abs.Sg]
 t e r e g h (V) ^ [Opt.Pres.Trns] ^ [2Pl.3Sg]
@@ -1487,7 +1487,7 @@ n a l l u k e (V) ^ [Ptcp.Trns] ^ [3Sg.3Pl]
 a g h n a g h a g h h a g h * (N) ^ [Rel.Sg]
 e n m i s (PTCL)
 q u y a k e (V) ^ @ ~ : (i/u) m a (V→V) ^ [Ptcp.Trns] ^ [3Sg.1Sg]
-g h h u u t e (V) ^ [Cond.Trns.3Sg.1Sg] = n g u q
+g h h u u t e (V) ^ [Cond.Trns] ^ [3Sg.1Sg] = n g u q
 q a y u g h l l a k (PTCL)
 a l l a (PTCL) = n g u q
 i l a (N) ^ – g h l l a g (N→N) ^ [Abs.3SgPoss.Sg] = l l u
@@ -2106,7 +2106,7 @@ q u n i (N) ^ [Rel.2SgPoss.Du]
 m a a q u t e (V) ^ [Ind.Trns] ^ [3Sg.3Sg]
 e l p e k (PRO.AbsRel.2Sg)
 q e m e g h y a g h (N) ^ [Rel.2SgPoss.Pl]
-i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns.3Sg.3Pl] = t a
+i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl] = t a
 m a l l a g h (N) ^ [Abs.Pl]
 k i y a g h t e (V) ^ + (te) s t e (CmpdVbl) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl]
 i y e (N) ^ [Abl_Mod.2SgPoss.Du]
@@ -2159,7 +2159,7 @@ a t e g h (N) ^ [Abs.3SgPoss.Sg]
 K a p i g (N) ^ [Abs.Sg]
 u n g i p a g h a g h (N) ^ [Loc.Pl]
 i m a g h (N) ^ [Loc.Pl]
-t a a k e (V) ^ [Ind.Intr.3Du] = n g u q
+t a a k e (V) ^ [Ind.Intr] ^ [3Du] = n g u q
 k a v i i g h (N) ^ – g h h a g h * (N→N) ^ ~sf -w : (e) n k u (N→N) ^ [Abs.Du]
 m e t e g h l l u g (N) ^ ~sf -w : (e) n k u (N→N) ^ [Abs.Du]
 n e (N) ^ [Loc.Sg]
@@ -2244,7 +2244,7 @@ u g l a g h (V) ^ [Conc.Intr] ^ [3Sg]
 t u u n e (V) ^ ~sf : (e) s q e (CmpdVbl) ^ [Sbrd.Trns] ^ [_.3Sg]
 t a a g k e n (PTCL) = n g u q
 u m i i l l g a g h * (N) ^ [Rel.Sg]
-k e v e g (V) ^ [Ind.Trns.3Sg.3Pl] = t a
+k e v e g (V) ^ [Ind.Trns] ^ [3Sg.3Pl] = t a
 k e t f a g h (V) ^ @ ~ : (u) t e (V→V) ^ [Ctmp.Trns] ^ [4Pl.3Sg]
 u g l a a (V) ^ – p i g t e (V→V) ^ [Sbrd.Trns] ^ [_.3Sg]
 i q a l l u g a g h (N) ^ [Abl_Mod.Sg]
@@ -2867,7 +2867,7 @@ T a m n i g h (N) ^ [Abs.Sg]
 a g h a (N) ^ [Abl_Mod.Sg]
 a f l e n g a k e (V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl]
 t a g h n u g h h a g h * (N) ^ [Abs.Pl]
-q u y a (V) ^ ~f n g a (V→V) ^ [Ind.Trns.3Sg.3Pl] = t a
+q u y a (V) ^ ~f n g a (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl] = t a
 t a g i t e (V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
 T a m n i g h (N) ^ [Abs.Sg]
 n e q e (N) ^ [Abl_Mod.Sg]
@@ -3176,7 +3176,7 @@ I p i (N) ^ [Rel.Sg]
 m a n g t a a g h (N) ^ – g h h a g h * (N→N) ^ [Abs.Pl]
 n a l l u n i i g h (V) ^ [Ind.Trns] ^ [3Pl.3Pl]
 u k a (DEM.ADV) ^ + a g h a g h t e (V→V) ^ [Sbrd.Trns] ^ [_.3Pl]
-a f l e n g a k e (V) ^ @ ~f n a (V→V) ^ [Sbrd.Trns._.3Pl] = l l u
+a f l e n g a k e (V) ^ @ ~f n a (V→V) ^ [Sbrd.Trns] ^ [_.3Pl] = l l u
 a g h h u t a n g a t a m a g hh a a n (PTCL)
 t a m a g h h a g h * (QUANTQUAL) ^ [3Sg]
 t a k u (V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [3Pl.3Pl]
@@ -3640,7 +3640,7 @@ u k a z i g h (N) ^ [Abs.Sg]
 a t a (N) ^ [Rel.Sg] = l l u
 P a a n s u (N) ^ [Abs.Sg] = l l u
 u n a k e (V) ^ [Ind.Trns] ^ [3Sg.3Sg]
-t a g i (V) ^ [Ind.Intr.3Sg] = l l u
+t a g i (V) ^ [Ind.Intr] ^ [3Sg] = l l u
 t a g i (V) ^ [Ind.Intr] ^ [3Pl]
 n a a (N) ^ [Abs.3SgPoss.Sg]
 a f t a (V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
@@ -3905,7 +3905,7 @@ a g h h u n n e g h a g u (PTCL)
 w a t a (PTCL)
 p u g i m e (V) ^ ~ (g) a q e (V→V) ^ [Ind.Intr] ^ [3Sg]
 q e n w a t (PTCL)
-n a g h a a g h (V) ^ [Cnsq1.Trns.3Sg.3Sg] = t u q
+n a g h a a g h (V) ^ [Cnsq1.Trns] ^ [3Sg.3Sg] = t u q
 m e g h (N) ^ [Loc.Sg]
 u n a (DEM.PRO.Abs.Sg)
 R u do l p h (N) ^ ~ : (ng) u (N→V) ^ [Ind.Intr] ^ [3Sg]
@@ -5417,7 +5417,7 @@ w h a n g k u n n i (PRO.Loc.1Pl)
 p i y u g (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 u n a (DEM.PRO.Abs.Sg)
 i g a g h v i g (N) ^ [Loc.Sg]
-p i y u g (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+p i y u g (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 s a (V) ^ @ ~f n a q e (V→V) ^ [Intrg.Intr.2Sg]
 a a p t e (V) ^ [Ind.Trns] ^ [3Sg.3Sg]
 P a t a (N) ^ [Rel.Sg]
@@ -5813,7 +5813,7 @@ p i n i g h q e (V) ^ ~ : (u) s i g h (V→N) ^ [Abs.Sg] = l l u
 p i n i g h (V) ^ [Ptcp.Intr] ^ [3Sg]
 u n a a n g u (V) ^ [Rel.Sg]
 n e q e (N) ^ [Abs.3SgPoss.Sg]
-n e g h (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+n e g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 m a m a g h (N) ^ [Abl_Mod.Sg]
 m e g h (V) ^ ~ (g) a q e (V→V) ^ [Ind.Intr] ^ [1Sg]
 u n a a n g u (V) ^ [Rel.Sg]
@@ -5826,7 +5826,7 @@ n e q e (N) ^ [Abs.3SgPoss.Sg]
 n e g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg]
 p i n i g h (V) ^ [Ptcp.Intr] ^ [3Sg]
 i g a g h v i g (N) ^ [Loc.Sg]
-n e g h (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+n e g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 a g h n e g h (N) ^ [Rel.Sg]
 q u k a g h (N) ^ [Rel.3SgPoss.Pl]
 n e q e (N) ^ [Abs.3SgPoss.Sg]
@@ -5845,7 +5845,7 @@ a g h h u t a n g a t a m a g hh a a n (PTCL)
 t a m a g h h a a n (PTCL)
 u g l a g h (V) ^ [Ptcp.Intr] ^ [3Sg]
 m e g h (N) ^ [Abs.Sg]
-m e g h (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+m e g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 a g h h u t a n g a t a m a g hh a a n (PTCL)
 t a m a g h h a a n (PTCL)
 m e g h (N) ^ [Abs.Sg]
@@ -5873,10 +5873,10 @@ q u l e (N) ^ [All.Sg] = l l u
 a s i t m u n (PTCL) = l l u
 p i (V) ^ [Ptcp.Intr] ^ [3Pl]
 n u y a g h (N) ^ [Abs.1SgPoss.Sg]
-i g l a g i g h (V) ^ [Ind.Trns.1Sg.3Sg] = q a = l l u
-m e s u u n a (V) ^ [Ind.Trns.1Sg.3Sg] = q a = l l u
+i g l a g i g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a = l l u
+m e s u u n a (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a = l l u
 n u y a g h (N) ^ [Abs.1SgPoss.Sg]
-a f l e n g a k e (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+a f l e n g a k e (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 a w i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns] ^ [2Sg.3Sg]
 i y e (N) ^ [Abl_Mod.1SgPoss.Pl]
 q u l i t e (V) ^ ~ (g) a q e (V→V) ^ [Ind.Intr] ^ [1Sg]
@@ -5899,7 +5899,7 @@ a a t e (V) ^ @ ~f n a q u t k e (V→V) ^ [Intrg.Intr] ^ [3Sg]
 a a n e (V) ^ @ ~f n a q e (V→V) ^ [Cond.Intr] ^ [1Sg]
 s i k u (N) ^ [Abs.Sg]
 k a n a g h (V) ^ @ ~f n i i g h (V→V) ^ – t u (V→V) ^ @ ~ : (u) t e (V→N) ^ [Abs.3SgPoss.Sg]
-e s g h a g h (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+e s g h a g h (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 e s g h a p a g (V) ^ [Sbrd.Trns] ^ [_.3Sg]
 n a v e k (WH)
 i g l e g h t e (V) ^ ~ (g) a q e (V→V) ^ @ ~ : (u) t e (V→N) ^ [Abs.1SgPoss.Sg]
@@ -5936,12 +5936,12 @@ k a l e r e (N) ^ [Abs.1SgPoss.Pl] = l l u
 q e n g a g h (N) ^ [Abl_Mod.1SgPoss.Pl]
 q a n e g h (N) ^ [Abl_Mod.1SgPoss.Pl]
 s i g u t e (N) ^ [Abl_Mod.1SgPoss.Pl] = l l u
-i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns.3Sg.3Pl] = t a
+i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl] = t a
 k i y a g h t e (V) ^ + (te) s t e (CmpdVbl) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [1Sg.3Pl]
 f i r e (N) ^ [Abs.Sg]
 a l a r m (N) ^ [Abs.Sg]
 n a g a q u g h (V) ^ [Ctmp.Trns] ^ [1Sg.3Sg]
-l i i s i m a k e (V) ^ [Ind.Trns.1Sg.3Sg] = q a
+l i i s i m a k e (V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 s a (V) ^ – l l e g h (V→N) ^ [Abs.Sg] = q a = q a
 m a l i g t e (V) ^ [Sbrd.Trns] ^ [_.3Pl]
 i l a (N) ^ [Abs.1SgPoss.Pl]
@@ -5971,7 +5971,7 @@ i g l e g h t e (V) ^ ~ (g) a q e (V→V) ^ [Ind.Intr] ^ [1Sg]
 i g a g h (N) ^ [Abs.Pl] = l l u
 n a g h a a g h u t e (N) ^ [Abs.Pl] = l l u
 m a y u g h a a t a g h (N) ^ [Abl_Mod.Pl]
-i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns.3Sg.3Pl] = t a
+i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl] = t a
 k i y a g h t e (V) ^ + (te) s t e (CmpdVbl) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [1Sg.3Pl]
 n e (N) ^ [Abl_Mod.Sg]
 i q i t n g a g h (POS→QUANTQUAL) ^ [1Sg]
@@ -5999,12 +5999,12 @@ n e (N) ^ [Loc.1PlPoss.Pl] ^ e t e ^ ~ (g) a q e (V→V) ^ [Ind.Intr] ^ [1Sg]
 q i n u y u g (V) ^ [Ctmp.Trns] ^ [1Sg.4Sg]
 k i y a g h t e (V) ^ + (te) s t e (CmpdVbl) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [1Sg.3Pl]
 i i g g e (N) ^ [Abs.1SgPoss.Pl]
-i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns.3Sg.3Pl] = t a
+i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl] = t a
 g g i n a g h (N) ^ [Abl_Mod.1SgPoss.Pl]
 k i y a g h t e (V) ^ + (te) s t e (CmpdVbl) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [1Sg.3Pl]
 i g a a s i g h (N) ^ [Abs.1SgPoss.Sg] = l l u
 i i g g e (N) ^ [Abs.1SgPoss.Pl] = l l u
-i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns.3Sg.3Pl] = t a
+i q i t e (V) ^ ~f n g a (V→V) ^ [Ind.Trns] ^ [3Sg.3Pl] = t a
 q a n e g h (N) ^ [Abl_Mod.1SgPoss.Pl]
 p e g h h i g h (V) ^ ~ (g) a q e (V→V) ^ [Ind.Intr] ^ [1Sg]
 n e g h (V) ^ [Prec.Intr] ^ [1Sg]
@@ -6064,7 +6064,7 @@ y u v g h i i g h (V) ^ ~ (g) a q e (V→V) ^ [Intrg.Intr] ^ [3Du]
 s i g u t e (N) ^ [Abs.1SgPoss.Du]
 a y u m i q u l l e g h (N) ^ [Loc.Sg]
 m a a l g h u g (NUM) ^ [Abl_Mod.Pl]
-e s g h a g h (V) ^ @ ~f y a g h t u g h (V→V) ^ [Ind.Trns.1Sg.3Sg] = q a
+e s g h a g h (V) ^ @ ~f y a g h t u g h (V→V) ^ [Ind.Trns] ^ [1Sg.3Sg] = q a
 g g u u t n i i g h t e (N) ^ [Abs.1SgPoss.Sg]
 p i n i g h (V) ^ [Ptcp.Intr] ^ [3Pl]
 g g u t e (N) ^ [Abs.Pl]
@@ -6127,7 +6127,7 @@ q a s u g h (N) ^ – k e s t a g h (V→V) ^ [Abs.Sg]
 k e t e (V) ^ [Ind.Intr] ^ [1Pl]
 i g l e g h t e (V) ^ ~ : (ng) i n a g h (V→V) ^ @ ~ : (i/u) m a (V→V) ^ [Sbrd.Trns] ^ [_.1Pl]
 a m s a n a g h (N) ^ – g h q u (N→V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
-k a a t e (V) ^ ~ (g) a q e (V→V) ^ [Ind.Intr.1Pl] = l l u
+k a a t e (V) ^ ~ (g) a q e (V→V) ^ [Ind.Intr] ^ [1Pl] = l l u
 a y w a a (N) ^ [Abl_Mod.Pl]
 i g i i t a g h a g h (N) ^ + t e (N→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
 p u q l e g h a a g h (N) ^ @ ~ : (i/u) m a (V→V) ^ [Ind.Trns] ^ [3Sg.3Sg]
@@ -6799,7 +6799,7 @@ q i k m i g h (N) ^ – r a a g h (N→N) ^ – g h h a g h * (N→N) ^ [Abl_Mod
 n a g n a a q u t e (N) ^ @ s i g h (N→V) ^ [Sbrd.Trns] ^ [_.3Pl]
 a l i g h (N) ^ [Rel.3SgPoss.Pl]
 p a y e (N) ^ [Abs.3SgPoss.Pl]
-p u v i t e (N) ^ @ s i g h (N→V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns.1Pl.3Pl] = l l u
+p u v i t e (N) ^ @ s i g h (N→V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [1Pl.3Pl] = l l u
 q i k m i g h (N) ^ – r a a g h (N→N) ^ [Abl_Mod.Sg]
 t a g n e g h (V) ^ @ – n q e g t a g h (V→N) ^ [Abs.3SgPoss.Sg]
 m a q a g h (N) ^ – g h l l a g (N→N) ^ [Abs.Pl]
@@ -7070,7 +7070,7 @@ i g h s a q u g h (N) ^ [Abs.Pl] = l l u
 g a a g h (V) ^ ~ (g) a q e (V→V) ^ [Ind.Trns] ^ [1Pl.3Pl]
 a g h i p s a a t e (V) ^ [Sbrd.Trns] ^ [_.3Pl]
 p i y u g (V) ^ [Ctmp.Trns] ^ [1Pl.3Pl]
-k i t e g h q e (V) ^ [Sbrd.Trns._.3Pl] = l l u
+k i t e g h q e (V) ^ [Sbrd.Trns] ^ [_.3Pl] = l l u
 u u k (PTCL)
 m a a n a (PTCL)
 i l a n g a k u n (PTCL)
@@ -7146,7 +7146,7 @@ n a l i g h m e n g (PTCL)
 d r y (ADJ)
 m i l k (N) ^ [Abs.Sg]
 m a m a g h (N) ^ – n g l l a g h (N→V) ^ ~ – q a g h (V→V) ^ [Sbrd.Trns] ^ [_.3Sg]
-t a a k e (V) ^ [Ind.Intr.3Du] = l l u
+t a a k e (V) ^ [Ind.Intr] ^ [3Du] = l l u
 m a a l g h u g (NUM) ^ [Abs.Sg]
 m a n i g (N) ^ [Abs.Du]
 i l a (V) ^ [Sbrd.Trns] ^ [_.3Du]
@@ -7215,7 +7215,7 @@ s a (N) ^ ~ : (ng) u (N→V) ^ [Intrg.Intr] ^ [3Pl]
 a l l i g h a g h (N) ^ + k a g h (N→N) ^ [Abs.Pl]
 a a g r a (N) ^ [Abs.Pl]
 i w h a n i (PTCL)
-t a a k e (V) ^ [Ind.Intr.3Pl] = l l u
+t a a k e (V) ^ [Ind.Intr] ^ [3Pl] = l l u
 m a a n a (PTCL)
 s a (N) ^ ~ : (ng) u (N→V) ^ [Intrg.Intr.3Pl] = l l i
 p u y g u (V) ^ [Ind.Trns] ^ [1Sg.3Pl]
@@ -7854,7 +7854,7 @@ q a a m n a (DEM.PRO.Abs.Sg)
 s i g u t e (N) ^ [Abs.3SgPoss.Du]
 p a n e g h (V) ^ [PtcpObl.Intr] ^ [4Du]
 t u q u m a (V) ^ [Ptcp.Intr] ^ [3Sg]
-t u q u (V) ^ [PtcpObl.Intr.4Sg] = n g u q
+t u q u (V) ^ [PtcpObl.Intr] ^ [4Sg] = n g u q
 [Anaphor] ^ u k a v e k (DEM.ADV.All)
 i q r a g h q e (V) ^ [Sbrd.Intr] ^ [4Sg]
 l l a n g a q a (PTCL) = n g u q
@@ -7919,10 +7919,10 @@ u u g h q a g h t e (V) ^ [Sbrd.Intr] ^ [4Sg]
 s a y u g (V) ^ ~ a g h t e (V→V) ^ [PtcpObl.Trns] ^ [4Sg.3Sg]
 i m a g h (N) ^ [Loc.Pl] = n g u q
 u n i i s t a a g h h a g h * (N) ^ ~ : (ng) u (N→V) ^ [Ind.Intr] ^ [3Sg]
-p i (V) ^ [PtcpObl.Trns.4Sg.3Sg] = n g u q
+p i (V) ^ [PtcpObl.Trns] ^ [4Sg.3Sg] = n g u q
 t u q u (V) ^ [Sbrd.Intr] ^ [4Sg]
 i i (PTCL)
-a k u q a g h (V) ^ [Sbrd.Trns._.3Sg] = n g u q
+a k u q a g h (V) ^ [Sbrd.Trns] ^ [_.3Sg] = n g u q
 e l n g a a t a l l (PTCL)
 y u g (N) ^ [Abs.Sg]
 q i y a a g h w a g h (V) ^ [PtcpObl.Intr] ^ [4Sg]
@@ -7930,7 +7930,7 @@ i n a g m i g (V) ^ [Sbrd.Trns] ^ [_.3Sg]
 n u l i i g h (N) ^ – s i i g h (N→N) ^ [Abs.4SgPoss.Pl]
 a g h n a g h a g h * (N) ^ [Abs.4SgPoss.Pl]
 [Anaphor] ^ u n a (DEM.PRO.Abs.Sg)
-q i y a a g h w a g h (V) ^ [PtcpObl.Intr.4Sg] = n g u q
+q i y a a g h w a g h (V) ^ [PtcpObl.Intr] ^ [4Sg] = n g u q
 q i y a a g h w a g h (V) ^ @ ~ : (i/u) m a (V→V) ^ [Sbrd.Trns] ^ [_.3Sg]
 a g h n a g h (N) ^ [Rel.Sg]
 n u l i i g h (N) ^ – p i g (N→N) ^ [Rel.3SgPoss.Pl]
@@ -7978,12 +7978,12 @@ i y e (N) ^ [Abs.1SgPoss.Du]
 p u u v e (V) ^ [Ind.Intr] ^ [3Du]
 g a a g h (V) ^ @ ~f – r a g k i i g h (V→V) ^ [Sbrd.Intr] ^ [2Du]
 n e g h (V) ^ @ ~ : (u) t k e (V→V) ^ [Sbrd.Trns] ^ [_.3Sg]
-s a (V) ^ [Cnsq1.Intr.4Du] = l l u
+s a (V) ^ [Cnsq1.Intr] ^ [4Du] = l l u
 i y e (N) ^ [Abs.2SgPoss.Du]
 p u u v e (V) ^ – g h l l a g (V→V) ^ [Intrg.Intr] ^ [3Du]
 t a a w a (PTCL)
 n a g h u g h t e (V) ^ [Ctmp.Trns] ^ [4Sg.3Sg]
-s a (V) ^ [Cnsq1.Intr.4Du] = l l u
+s a (V) ^ [Cnsq1.Intr] ^ [4Du] = l l u
 i y e (N) ^ [Abs.2SgPoss.Du]
 p u u v e (V) ^ – g h l l a g (V→V) ^ [Intrg.Intr] ^ [3Du]
 q e n w a t (PTCL)
