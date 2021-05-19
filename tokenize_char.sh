@@ -55,7 +55,8 @@ for f in $1/*.tsv; do
     sed 's,\([0-9]\)\([a-z]\),\1 \2,g' | \
     sed 's,\([0-9]\)-,\1 -,g' | \
     sed 's,\([0-9]\)(,\1 (,g' | \
-	sed 's, \[Anaphor,\[Anaphor,g' > $underlying
+	sed 's, \[Anaphor,\[Anaphor,g' | \
+    sed 's,wh,w h,g' > $underlying
 
     # tokenizes the surface forms, split by space
 	cut -f2 $f | \
