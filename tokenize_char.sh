@@ -70,14 +70,11 @@ for f in $1/*.tsv; do
 done
 
 # rename files
-#if [ $1 == "devset" ]; then
-#    mv $dirname/devset.surface $dirname/src-dev.txt
-#    mv $dirname/devset.underlying $dirname/tgt-dev.txt
-#elif [ $1 == "dataset" ]; then
-mv $1/train.surface $1/src-train.txt
-mv $1/train.underlying $1/tgt-train.txt
-mv $1/val.surface $1/src-val.txt
-mv $1/val.underlying $1/tgt-val.txt
-mv $1/testset.surface $1/src-test.txt
-mv $1/testset.underlying $1/tgt-test.txt
-#fi
+if [ $1 == "data" ]; then
+    mv $1/train.surface $1/src-train.txt
+    mv $1/train.underlying $1/tgt-train.txt
+    mv $1/val.surface $1/src-val.txt
+    mv $1/val.underlying $1/tgt-val.txt
+    mv $1/testset.surface $1/src-test.txt
+    mv $1/testset.underlying $1/tgt-test.txt
+fi

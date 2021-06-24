@@ -12,8 +12,8 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('parser_output', help='itemquulteki\'s output file')
-    parser.add_argument('gold', help='devtest\'s gold analyses')
+    parser.add_argument('--parser_output', help='itemquulteki\'s output file')
+    parser.add_argument('--gold', help='devtest\'s gold analyses')
     args = parser.parse_args()
 
     unique = [] # count as correct if FST outputs one and only one analysis and it is correct

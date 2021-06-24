@@ -40,8 +40,8 @@ def convert_to_fst_input(sample):
             converted = sample.replace("Intr.", "Intr]^["). \
                                replace("Trns.", "Trns]^[")
 
-    if "Anaphor" in sample:
-        converted = sample.replace("Anaphor]", "Anaphor]^")
+    #if "Anaphor" in sample:
+    #    converted = sample.replace("Anaphor]", "Anaphor]^")
 
     if "(DEM.PRO)" in sample:
         if "Poss" in sample:

@@ -3,7 +3,7 @@
 :author: Emily Chen
 :date:   2021
 
-USAGE:  python2.7 get_word_error_rate.py /nas/data/yupik/finite_state_morphology/uppercase.fomabin devtest/src-dev.txt devtest/tgt-dev.txt [PREDICTIONS.TXT] 
+USAGE:  python2.7 get_word_error_rate.py /nas/data/yupik/finite_state_morphology/uppercase.fomabin devtest/src-dev.txt devtest/tgt-dev.txt [PREDICTIONS.TXT]  [N_BEST]
 
 '''
 import argparse
@@ -15,11 +15,11 @@ from foma import *
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('fst', help='file path to fst analyzer')
-parser.add_argument('surface_forms', help='file path to surface forms')
-parser.add_argument('gold', help='file path to gold analyses')
-parser.add_argument('pred', help='file path to predicted analyses')
-parser.add_argument('nbest', help='num of n-best predictions made')
+parser.add_argument('--fst', help='file path to fst analyzer')
+parser.add_argument('--surface_forms', help='file path to surface forms')
+parser.add_argument('--gold', help='file path to gold analyses')
+parser.add_argument('--pred', help='file path to predicted analyses')
+parser.add_argument('--nbest', help='num of n-best predictions made')
 args = parser.parse_args()
 
 gold_analyses = []
@@ -57,6 +57,8 @@ with open(args.surface_forms, 'r') as f:
 
 
 if len(gold_analyses) != len(predicted_analyses):
+    print(len(gold_analyses))
+    print(len(predicted_analyses))
     print("WARNING: number of gold standard items does not match the " + \
           "number of items being analyzed")
     exit()
