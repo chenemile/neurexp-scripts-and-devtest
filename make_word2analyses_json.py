@@ -90,10 +90,10 @@ def convert_cg_to_fst_format(analysis):
     if "DEM" in fst_analysis:
         if "Anaphor" in fst_analysis:
             tmp = re.sub(r'DEM([a-zA-Z\._]*)]', r'DEM\1)', fst_analysis)
-            fst_analysis = "[Anaphor]" + tmp.replace("^[Anaphor.DEM","(DEM") \
-                                            .replace(".Ind",")^[Ind").replace(".Ptcp",")^[Ptcp") \
-                                            .replace(".Sbrd",")^[Sbrd") \
-                                            .replace(".C",")^[C").replace(".O",")^[O") # catch-all for remaining verb moods
+            #fst_analysis = "[Anaphor]" + tmp.replace("^[Anaphor.DEM","(DEM") \
+            fst_analysis = tmp.replace(".Ind",")^[Ind").replace(".Ptcp",")^[Ptcp") \
+                              .replace(".Sbrd",")^[Sbrd") \
+                              .replace(".C",")^[C").replace(".O",")^[O") # catch-all for remaining verb moods
 
     # reformat vocatives
     if "Voc" in fst_analysis:
