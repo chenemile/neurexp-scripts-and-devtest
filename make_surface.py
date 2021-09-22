@@ -39,25 +39,32 @@ def convert_to_fst_input(sample):
         if not any(infl in sample for infl in fused_infl):
             converted = sample.replace("Intr.", "Intr]^["). \
                                replace("Trns.", "Trns]^[")
+            sample = converted
 
     if "Anaphor" in sample:
         converted = sample.replace("Anaphor]", "Anaphor]^")
+        sample = converted
 
     if "[DEM" in sample:
         converted = sample.replace("[DEM", "(DEM")
+        sample = converted
 
     if "(DEM.PRO)" in sample:
         if "Poss" in sample:
             converted = sample[:-12] + sample[-4:]
+            sample = converted
         elif "[Abs.Pl]" in sample or "[Abs.Du]" in sample:
             converted = sample.replace("[Abs", "[AbsRel") \
                               .replace("[Rel", "[AbsRel")
+            sample = converted
 
     if "ingagh(POS)" in sample:
         converted = sample.replace("ingagh(POS)","ingagh*(POS)")
+        sample = converted
 
     if "=" in sample:
         converted = sample.replace("^=", "=")
+        sample = converted
 
     return converted
 
