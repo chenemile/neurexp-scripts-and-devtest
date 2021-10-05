@@ -60,8 +60,8 @@ def select_shortest_analyses(word2analyses):
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--json', help='file path to devtest\'s word2analyses json')
-    parser.add_argument('--output', help='desired name of output file')
+    parser.add_argument('json', help='file path to devtest\'s word2analyses json')
+    parser.add_argument('--output', default="devtest.tsv", help='desired name of output file')
     args = parser.parse_args()
 
     jsonfile   = args.json

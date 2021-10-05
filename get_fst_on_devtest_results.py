@@ -12,8 +12,8 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--parser_output', help='itemquulteki\'s output file')
-    parser.add_argument('--gold', help='devtest\'s gold analyses')
+    parser.add_argument('guesses', help='itemquulteki\'s output file')
+    parser.add_argument('gold', help='devtest\'s gold analyses')
     args = parser.parse_args()
 
     unique = [] # count as correct if FST outputs one and only one analysis and it is correct
@@ -21,7 +21,7 @@ def main():
     shortest   = [] # count as correct if the *first* shortest analysis is correct
     anycorrect = [] # count as correct if any of the FST's analyses are correct
 
-    with open(args.parser_output, 'r') as f:
+    with open(args.guesses, 'r') as f:
         lines = csv.reader(f, delimiter='\t')
 
         line_num = 1

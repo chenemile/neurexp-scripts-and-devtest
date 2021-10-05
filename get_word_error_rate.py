@@ -15,11 +15,11 @@ from foma import *
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--fst', help='file path to fst analyzer')
-parser.add_argument('--surface_forms', help='file path to surface forms')
-parser.add_argument('--gold', help='file path to gold analyses')
-parser.add_argument('--pred', help='file path to predicted analyses')
-parser.add_argument('--nbest', help='num of n-best predictions made')
+parser.add_argument('fst', help='file path to fst analyzer')
+parser.add_argument('input', help='file path to words to be analyzed')
+parser.add_argument('pred', help='file path to predicted analyses')
+parser.add_argument('gold', help='file path to gold analyses')
+parser.add_argument('nbest', help='num n-best predictions made')
 args = parser.parse_args()
 
 gold_analyses = []
@@ -50,7 +50,7 @@ with open(args.pred, 'r') as f:
     predicted_analyses.append(predictions)
 
 
-with open(args.surface_forms, 'r') as f:
+with open(args.input, 'r') as f:
     for line in f:
         sf = line.replace(" ","").strip().decode('utf-8')
         surface_forms.append(sf)
@@ -101,6 +101,7 @@ else:
                         match = True
                         break
     
+            # NOTE: outputs all errors (tokens)
             if not match:
                 num_wrong += 1
                 items_wrong.append("item ID " + str(i+1) + ": " + surface_forms[i])
@@ -116,6 +117,33 @@ else:
                               guesses + \
                               "\n")
 
+            '''
+            # NOTE: outputs types (no repeat errors)
+
+            if not match:
+                # update error analysis csv
+                unique_error = True
+                for item in items_wrong:
+                    if surface_forms[i].lower() in item.lower(): 
+                        unique_error = False
+                        break
+
+                if unique_error:
+                    guesses = ""
+                    for j in range(int(args.nbest)):
+                        tmp = predicted_analyses[i][j].encode('utf-8') + ","
+                        guesses += tmp
+            
+                    csvfile.write(surface_forms[i].encode('utf-8') + "," + \
+                                  gold_analysis.encode('utf-8') + "," + \
+                                  guesses + \
+                                  "\n")
+
+                num_wrong += 1
+                items_wrong.append("item ID " + str(i+1) + ": " + surface_forms[i])
+                '''
+    
+        
     print("----------------")
     print("problem children")
     print("----------------")
