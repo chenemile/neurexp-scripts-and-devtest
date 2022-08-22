@@ -142,12 +142,16 @@ else:
                 num_wrong += 1
                 items_wrong.append("item ID " + str(i+1) + ": " + surface_forms[i])
                 '''
-    
+    print("===================")
+    print("neural analyzer WER") 
+    print("===================")
         
     print("----------------")
     print("problem children")
     print("----------------")
     pprint.pprint(items_wrong)
+
+    print()
 
     print("---------------")
     print("word error rate")
