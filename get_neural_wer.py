@@ -3,7 +3,7 @@
 :author: Emily Chen
 :date:   2021
 
-USAGE:  python2.7 get_word_error_rate.py /nas/data/yupik/finite_state_morphology/uppercase.fomabin devtest/src-dev.txt devtest/tgt-dev.txt [PREDICTIONS.TXT]  [N_BEST]
+USAGE:  python2.7 get_neural_wer.py /nas/data/yupik/finite_state_morphology/uppercase.fomabin devtest/src-dev.txt devtest/tgt-dev.txt [PREDICTIONS.TXT]  [N_BEST]
 
 '''
 import argparse
@@ -79,7 +79,7 @@ else:
             match = False
     
             for prediction in predicted_analyses[i]:
-                if gold_analyses[i] == prediction:
+                if gold_analyses[i].lower() == prediction.lower():
                     match = True
                     break
     

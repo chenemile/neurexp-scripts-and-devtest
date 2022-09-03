@@ -3,6 +3,7 @@
 # partitions dataset into a 
 #   * training set
 #   * validation set
+#   * test set
 #--------------------------
 train=train.tsv
 valid=val.tsv
@@ -14,6 +15,10 @@ total=$(wc -l < $1)
 numTrain=$(echo "$total*0.9" | bc | xargs printf %.0f)
 numValid=$(echo "($total - $numTrain)" | bc | xargs printf %.0f)
 #numTest=$(echo "$total - $numTrain - $numValid" | bc | xargs printf %.0f)
+
+#numValid=$(echo "$total*0.01" | bc | xargs printf %.0f)
+#numTest=$(echo "$total*0.19" | bc | xargs printf %.0f)
+#numTrain=$(echo "$total - $numTest - $numValid" | bc | xargs printf %.0f)
 
 shuf -n $numTrain $1 > $train
 

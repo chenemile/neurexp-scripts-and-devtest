@@ -75,6 +75,6 @@ if [ $1 == "data" ]; then
     mv $1/train.underlying $1/tgt-train.txt
     mv $1/val.surface $1/src-val.txt
     mv $1/val.underlying $1/tgt-val.txt
-    mv $1/testset.surface $1/src-test.txt
-    mv $1/testset.underlying $1/tgt-test.txt
+    #mv $1/testset.surface $1/src-test.txt
+    #mv $1/testset.underlying $1/tgt-test.txt
 fi
