@@ -37,22 +37,38 @@ def main():
         random_w2a, morpheme_dist, deriv_count_dist = get_zipfdist_of_morphemes_over_random_analyses(word2analyses)
         enclitic_count_dist = get_enclitic_counts(random_w2a)
         deriv_count_after_stem_dist = get_deriv_counts_after_stem_type(random_w2a)
+        pos_counts_after_pos_dist = get_pos_counts_after_each_pos(random_w2a)
 
     elif args.count_method == "shortest":
         shortest_w2a, morpheme_dist, deriv_count_dist = get_zipfdist_of_morphemes_over_shortest_analyses(word2analyses)
         enclitic_count_dist = get_enclitic_counts(shortest_w2a)
         deriv_count_after_stem_dist = get_deriv_counts_after_stem_type(shortest_w2a)
+        pos_counts_after_pos_dist = get_pos_counts_after_each_pos(shortest_w2a)
 
     elif args.count_method == "mixed":
         mixed_w2a, morpheme_dist, deriv_count_dist = get_zipfdist_of_morphemes_over_random_and_shortest_analyses(word2analyses)
         enclitic_count_dist = get_enclitic_counts(mixed_w2a)
         deriv_count_after_stem_dist = get_deriv_counts_after_stem_type(mixed_w2a)
+        pos_counts_after_pos_dist = get_pos_counts_after_each_pos(mixed_w2a)
+
+    elif args.count_method == "uniform_frac":
+        unifrac_w2a, morpheme_dist, deriv_count_dist = get_zipfdist_of_morphemes_over_random_and_shortest_analyses(word2analyses)
+        enclitic_count_dist = get_enclitic_counts(unifrac_w2a)
+        deriv_count_after_stem_dist = get_deriv_counts_after_stem_type(unifrac_w2a)
+        pos_counts_after_pos_dist = get_pos_counts_after_each_pos(unifrac_w2a)
+
+    elif args.count_method == "conditional_frac":
+        condfrac_w2a, morpheme_dist, deriv_count_dist = get_zipfdist_of_morphemes_over_random_and_shortest_analyses(word2analyses)
+        enclitic_count_dist = get_enclitic_counts(condfrac_w2a)
+        deriv_count_after_stem_dist = get_deriv_counts_after_stem_type(condfrac_w2a)
+        pos_counts_after_pos_dist = get_pos_counts_after_each_pos(condfrac_w2a)
 
     params = list()
     params.append(morpheme_dist)
     params.append(deriv_count_dist)
     params.append(enclitic_count_dist)
     params.append(deriv_count_after_stem_dist)
+    params.append(pos_counts_after_pos_dist)
 
     samples = generate_samples(num_samples, sampling_method, params)
 

@@ -381,14 +381,16 @@ def generate_samples(sample_num, sampling_method, all_params):
     '''
     samples = []
 
-    morpheme_dist, deriv_count_dist, enclitic_count_dist, deriv_count_after_stem_dist = [parameter for parameter in all_params]
+    morpheme_dist, deriv_count_dist, enclitic_count_dist, deriv_count_after_stem_dist, pos_counts_after_pos_dist  = [parameter for parameter in all_params]
 
     if sampling_method == "1A":
         samples = sampling_1A(sample_num, morpheme_dist, deriv_count_dist)
     elif sampling_method == "2A":
         samples = sampling_2A(sample_num, morpheme_dist, deriv_count_dist, enclitic_count_dist)
     elif sampling_method == "2B":
-        samples = sampling_2B(sample_num, enclitic_count_dist, deriv_count_after_stem_dist)
+        samples = sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_after_stem_dist)
+    elif sampling_method == "3A":
+        samples = sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after_pos_dist) 
 
     return samples
 
@@ -919,7 +921,7 @@ def sampling_2B(sample_num, morpheme_dist, enclitic_count_dist, deriv_count_afte
             total = 0
             sample_n = random.random()
             for deriv_count in deriv_count_after_stem_probabilities:
-                total += subdict[deriv_count]
+                total += deriv_count_after_stem_probabilities[deriv_count]
                 if sample_n < total:
                     num_deriv = int(deriv_count[2])
                     break
@@ -1322,7 +1324,7 @@ def sampling_3A(sample_num, morpheme_dist, enclitic_count_dist, pos_counts_after
                             break
                 elif ("V)" in sample[-1] and "ADV)" not in sample[-1]) or \
                       "(CmpdVbl)" in sample[-1] or \
-                      "STATIVE)" in sample[-1] or "ACTIVE)" in sample[-1]:
+                      "POS)" in sample[-1] or "STATIVE)" in sample[-1] or "ACTIVE)" in sample[-1]:
                     total = 0
                     sample_n = random.random()
                     for im in verb_infl_probabilities:
