@@ -11,6 +11,19 @@ import random
 import sys
 
 
+def get_aprf(false_neg, false_pos, total):
+    '''
+    '''
+    true_pos = total - false_neg - false_pos
+
+    accuracy  = (true_pos)/float(total) * 100
+    precision = (true_pos)/float(true_pos + false_pos) * 100
+    recall    = (true_pos)/float(true_pos + false_neg) * 100
+    fmeasure  = (2 * precision * recall)/(precision + recall)
+
+    return accuracy, precision, recall, fmeasure
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('pred', help='itemquulteki\'s output file of predicted analyses')
@@ -62,29 +75,43 @@ def main():
                 # append all analyses to 'anycorrect'
                 anycorrect.append(predicted_analyses)
              
-    gold_analyses = [] # presumed gold analyses for devtest (aren't actually)
+    gold_analyses = []
     with open(args.gold, 'r') as f:
         for line in f:
             gold_analyses.append(line.strip().lower())
 
     # check for correctness
-    num_wrong_unique     = 0
-    num_wrong_random     = 0
-    num_wrong_shortest   = 0
-    num_wrong_anycorrect = 0
+    #     false negatives +1 for every word analyzer fails to analyze
+    #     false positives +1 for every wrong analysis 
+    false_neg_unique = []
+    false_pos_unique = []
 
-    items_wrong_anycorrect = []
+    false_neg_random = [] 
+    false_pos_random = []
+
+    false_neg_shortest = []
+    false_pos_shortest = []
+
+    false_neg_anycorrect = []
+    false_pos_anycorrect = []
 
     for i in range(len(gold_analyses)):
 
-        if gold_analyses[i] != unique[i]:
-            num_wrong_unique += 1
+        if unique[i] == "+?":
+            false_neg_unique.append(words[i])
+        elif gold_analyses[i] != unique[i]:
+            false_pos_unique.append(words[i])
 
-        if gold_analyses[i] != rndm[i]:
-            num_wrong_random += 1
+        if rndm[i] == "+?":
+            false_neg_random.append(words[i])
+            false_neg_random.append(words[i])
+        elif gold_analyses[i] != rndm[i]:
+            false_pos_random.append(words[i])
 
-        if gold_analyses[i] != shortest[i]:
-            num_wrong_shortest += 1
+        if shortest[i] == "+?":
+            false_neg_shortest.append(words[i])
+        elif gold_analyses[i] != shortest[i]:
+            false_pos_shortest.append(words[i])
 
         if type(anycorrect[i]) == list:
             found_match = False
@@ -95,14 +122,25 @@ def main():
                     break
 
             if found_match == False:
-                num_wrong_anycorrect += 1
-                items_wrong_anycorrect.append(words[i])
+                false_pos_anycorrect.append(words[i])
         else:
-            if gold_analyses[i] != anycorrect[i]:
-                num_wrong_anycorrect += 1
-                items_wrong_anycorrect.append(words[i])
+            if anycorrect[i] == "+?":
+                false_neg_anycorrect.append(words[i])
+            elif gold_analyses[i] != anycorrect[i]:
+                false_pos_anycorrect.append(words[i])
 
-    num_items = len(gold_analyses)
+    num_items_tok = len(gold_analyses)
+    num_items_typ = len(set(gold_analyses))
+
+    unique_aprf_tok     = get_aprf(len(false_neg_unique), len(false_pos_unique), num_items_tok)
+    random_aprf_tok     = get_aprf(len(false_neg_random), len(false_pos_random), num_items_tok)
+    shortest_aprf_tok   = get_aprf(len(false_neg_shortest), len(false_pos_shortest), num_items_tok)
+    anycorrect_aprf_tok = get_aprf(len(false_neg_anycorrect), len(false_pos_anycorrect), num_items_tok)
+
+    unique_aprf_typ     = get_aprf(len(set(false_neg_unique)), len(set(false_pos_unique)), num_items_typ)
+    random_aprf_typ     = get_aprf(len(set(false_neg_random)), len(set(false_pos_random)), num_items_typ)
+    shortest_aprf_typ   = get_aprf(len(set(false_neg_shortest)), len(set(false_pos_shortest)), num_items_typ)
+    anycorrect_aprf_typ = get_aprf(len(set(false_neg_anycorrect)), len(set(false_pos_anycorrect)), num_items_typ)
 
     print("================")
     print("fst analyzer WER")
@@ -111,31 +149,79 @@ def main():
     print("----------------")
     print("problem children")
     print("----------------")
-    pprint.pprint(items_wrong_anycorrect)
+    pprint.pprint(false_neg_anycorrect + false_pos_anycorrect)
 
     print()
 
-    print("---------------")
-    print("word error rate")
-    print("---------------")
+    print("------")
+    print("tokens")
+    print("------")
     print("unique:")
-    print("  wer = {:.2f}".format(num_wrong_unique/float(num_items) * 100))
-    print("  acc = {:.2f}".format((num_items - num_wrong_unique)/float(num_items) * 100))
+    print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_unique))/float(num_items_tok) * 100))
+    print("  accuracy  = {:.2f}".format(unique_aprf_tok[0]))
+    print("  precision = {:.2f}".format(unique_aprf_tok[1]))
+    print("  recall    = {:.2f}".format(unique_aprf_tok[2]))
+    print("  f-measure = {:.2f}".format(unique_aprf_tok[3]))
     print()
 
     print("random:")
-    print("  wer = {:.2f}".format(num_wrong_random/float(num_items) * 100))
-    print("  acc = {:.2f}".format((num_items - num_wrong_random)/float(num_items) * 100))
+    print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_random))/float(num_items_tok) * 100))
+    print("  accuracy  = {:.2f}".format(random_aprf_tok[0]))
+    print("  precision = {:.2f}".format(random_aprf_tok[1]))
+    print("  recall    = {:.2f}".format(random_aprf_tok[2]))
+    print("  f-measure = {:.2f}".format(random_aprf_tok[3]))
     print()
 
     print("shortest:")
-    print("  wer = {:.2f}".format(num_wrong_shortest/float(num_items) * 100))
-    print("  acc = {:.2f}".format((num_items - num_wrong_shortest)/float(num_items) * 100))
+    print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_shortest))/float(num_items_tok) * 100))
+    print("  accuracy  = {:.2f}".format(shortest_aprf_tok[0]))
+    print("  precision = {:.2f}".format(shortest_aprf_tok[1]))
+    print("  recall    = {:.2f}".format(shortest_aprf_tok[2]))
+    print("  f-measure = {:.2f}".format(shortest_aprf_tok[3]))
     print()
 
     print("any correct:")
-    print("  wer = {:.2f}".format(num_wrong_anycorrect/float(num_items) * 100))
-    print("  acc = {:.2f}".format((num_items - num_wrong_anycorrect)/float(num_items) * 100))
+    print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_anycorrect))/float(num_items_tok) * 100))
+    print("  accuracy  = {:.2f}".format(anycorrect_aprf_tok[0]))
+    print("  precision = {:.2f}".format(anycorrect_aprf_tok[1]))
+    print("  recall    = {:.2f}".format(anycorrect_aprf_tok[2]))
+    print("  f-measure = {:.2f}".format(anycorrect_aprf_tok[3]))
+
+    print()
+
+    print("-----")
+    print("types")
+    print("-----")
+    print("unique:")
+    print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_unique)))/float(num_items_typ) * 100))
+    print("  accuracy  = {:.2f}".format(unique_aprf_typ[0]))
+    print("  precision = {:.2f}".format(unique_aprf_typ[1]))
+    print("  recall    = {:.2f}".format(unique_aprf_typ[2]))
+    print("  f-measure = {:.2f}".format(unique_aprf_typ[3]))
+    print()
+
+    print("random:")
+    print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_random)))/float(num_items_typ) * 100))
+    print("  accuracy  = {:.2f}".format(random_aprf_typ[0]))
+    print("  precision = {:.2f}".format(random_aprf_typ[1]))
+    print("  recall    = {:.2f}".format(random_aprf_typ[2]))
+    print("  f-measure = {:.2f}".format(random_aprf_typ[3]))
+    print()
+
+    print("shortest:")
+    print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_shortest)))/float(num_items_typ) * 100))
+    print("  accuracy  = {:.2f}".format(shortest_aprf_typ[0]))
+    print("  precision = {:.2f}".format(shortest_aprf_typ[1]))
+    print("  recall    = {:.2f}".format(shortest_aprf_typ[2]))
+    print("  f-measure = {:.2f}".format(shortest_aprf_typ[3]))
+    print()
+
+    print("any correct:")
+    print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_anycorrect)))/float(num_items_typ) * 100))
+    print("  accuracy  = {:.2f}".format(anycorrect_aprf_typ[0]))
+    print("  precision = {:.2f}".format(anycorrect_aprf_typ[1]))
+    print("  recall    = {:.2f}".format(anycorrect_aprf_typ[2]))
+    print("  f-measure = {:.2f}".format(anycorrect_aprf_typ[3]))
 
     print()
 
