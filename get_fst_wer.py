@@ -10,6 +10,8 @@ import pprint
 import random
 import sys
 
+from statistics import median
+
 
 def get_aprf(false_neg, false_pos, total):
     '''
@@ -132,6 +134,7 @@ def main():
     num_items_tok = len(gold_analyses)
     num_items_typ = len(set(gold_analyses))
 
+    # get accuracy, precision, recall, f-measure
     unique_aprf_tok     = get_aprf(len(false_neg_unique), len(false_pos_unique), num_items_tok)
     random_aprf_tok     = get_aprf(len(false_neg_random), len(false_pos_random), num_items_tok)
     shortest_aprf_tok   = get_aprf(len(false_neg_shortest), len(false_pos_shortest), num_items_tok)
@@ -141,6 +144,17 @@ def main():
     random_aprf_typ     = get_aprf(len(set(false_neg_random)), len(set(false_pos_random)), num_items_typ)
     shortest_aprf_typ   = get_aprf(len(set(false_neg_shortest)), len(set(false_pos_shortest)), num_items_typ)
     anycorrect_aprf_typ = get_aprf(len(set(false_neg_anycorrect)), len(set(false_pos_anycorrect)), num_items_typ)
+
+    # get avg, median num analyses and word with most analyses
+    analyses_count = {}
+    for i in range(len(anycorrect)):
+        analyses_count[words[i]] = len(anycorrect[i]) 
+
+    word_with_most       = max(analyses_count, key=analyses_count.get) 
+    word_with_most_count = analyses_count[word_with_most]
+
+    average_num_analyses = "{:.2f}".format(sum(analyses_count.values()) / float(len(analyses_count)))
+    median_num_analyses  = median(list(analyses_count.values()))
 
     print("================")
     print("fst analyzer WER")
@@ -222,6 +236,17 @@ def main():
     print("  precision = {:.2f}".format(anycorrect_aprf_typ[1]))
     print("  recall    = {:.2f}".format(anycorrect_aprf_typ[2]))
     print("  f-measure = {:.2f}".format(anycorrect_aprf_typ[3]))
+    print()
+
+    print("-----------")
+    print("other stats")
+    print("-----------")
+    print("word with most analyses: " + word_with_most)
+    print("  num analyses: " + str(word_with_most_count))
+    print()
+
+    print("average number of analyses: " + average_num_analyses)
+    print("median number of analyses:  " + str(median_num_analyses))
 
     print()
 
