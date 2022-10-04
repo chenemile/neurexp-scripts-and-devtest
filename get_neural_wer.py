@@ -67,9 +67,10 @@ else:
 
     #print(args.pred)
 
-    num_wrong = 0
-    num_items = len(gold_analyses)
-    items_wrong = []
+    num_tokens_wrong = 0
+    num_tokens = len(gold_analyses)
+
+    tokens_wrong = []
 
     # make csv file to assist with manual error analysis
     #   WORD, PREDICTED, ANALYSIS 1, ... , ANALYSIS [n_best]
@@ -101,10 +102,10 @@ else:
                         match = True
                         break
     
-            # NOTE: outputs all errors (tokens)
+            #  outputs all errors (tokens)
             if not match:
-                num_wrong += 1
-                items_wrong.append("item ID " + str(i+1) + ": " + surface_forms[i])
+                num_tokens_wrong += 1
+                tokens_wrong.append("item ID " + str(i+1) + ": " + surface_forms[i])
     
                 # update error analysis csv
                 guesses = ""
@@ -116,32 +117,11 @@ else:
                               gold_analysis.encode('utf-8') + "," + \
                               guesses + \
                               "\n")
+    
+    num_types = len(set(gold_analyses))
+    types_wrong = [tok.split(": ")[1] for tok in tokens_wrong]
+    num_types_wrong = len(set(types_wrong))
 
-            '''
-            # NOTE: outputs types (no repeat errors)
-
-            if not match:
-                # update error analysis csv
-                unique_error = True
-                for item in items_wrong:
-                    if surface_forms[i].lower() in item.lower(): 
-                        unique_error = False
-                        break
-
-                if unique_error:
-                    guesses = ""
-                    for j in range(int(args.nbest)):
-                        tmp = predicted_analyses[i][j].encode('utf-8') + ","
-                        guesses += tmp
-            
-                    csvfile.write(surface_forms[i].encode('utf-8') + "," + \
-                                  gold_analysis.encode('utf-8') + "," + \
-                                  guesses + \
-                                  "\n")
-
-                num_wrong += 1
-                items_wrong.append("item ID " + str(i+1) + ": " + surface_forms[i])
-                '''
     print("===================")
     print("neural analyzer WER") 
     print("===================")
@@ -149,12 +129,16 @@ else:
     print("----------------")
     print("problem children")
     print("----------------")
-    pprint.pprint(items_wrong)
+    pprint.pprint(tokens_wrong)
 
     print()
 
-    print("---------------")
-    print("word error rate")
-    print("---------------")
-    print("  wer = {:.2f}".format(num_wrong/float(num_items) * 100))
-    print("  acc = {:.2f}".format((num_items - num_wrong)/float(num_items) * 100))
+    print("------")
+    print("types")
+    print("------")
+    print("  acc = {:.2f}".format((num_types - num_types_wrong)/float(num_types) * 100))
+
+    print("------")
+    print("tokens")
+    print("------")
+    print("  acc = {:.2f}".format((num_tokens - num_tokens_wrong)/float(num_tokens) * 100))

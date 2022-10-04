@@ -7,7 +7,7 @@
 import argparse
 import json
 
-from make_surface import convert_to_fst_input
+from add_surface import convert_to_fst_input
 
 
 def select_shortest_analyses(word2analyses):

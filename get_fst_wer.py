@@ -184,7 +184,7 @@ def main():
     print("-----")
     print("unique:")
     print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_unique)))/float(num_items_typ) * 100))
-    #print("  accuracy  = {:.2f}".format(unique_aprf_typ[0]))
+    print("  accuracy  = {:.2f}".format(unique_aprf_typ[0]))
     print("  precision = {:.2f}".format(unique_aprf_typ[1]))
     print("  recall    = {:.2f}".format(unique_aprf_typ[2]))
     print("  f-measure = {:.2f}".format(unique_aprf_typ[3]))
@@ -192,7 +192,7 @@ def main():
 
     print("random:")
     print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_random)))/float(num_items_typ) * 100))
-    #print("  accuracy  = {:.2f}".format(random_aprf_typ[0]))
+    print("  accuracy  = {:.2f}".format(random_aprf_typ[0]))
     print("  precision = {:.2f}".format(random_aprf_typ[1]))
     print("  recall    = {:.2f}".format(random_aprf_typ[2]))
     print("  f-measure = {:.2f}".format(random_aprf_typ[3]))
@@ -200,7 +200,7 @@ def main():
 
     print("fewest:")
     print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_fewest)))/float(num_items_typ) * 100))
-    #print("  accuracy  = {:.2f}".format(fewest_aprf_typ[0]))
+    print("  accuracy  = {:.2f}".format(fewest_aprf_typ[0]))
     print("  precision = {:.2f}".format(fewest_aprf_typ[1]))
     print("  recall    = {:.2f}".format(fewest_aprf_typ[2]))
     print("  f-measure = {:.2f}".format(fewest_aprf_typ[3]))
@@ -208,7 +208,7 @@ def main():
 
     print("any correct:")
     print("  coverage  = {:.2f}".format((num_items_typ - len(set(false_neg_anycorrect)))/float(num_items_typ) * 100))
-    #print("  accuracy  = {:.2f}".format(anycorrect_aprf_typ[0]))
+    print("  accuracy  = {:.2f}".format(anycorrect_aprf_typ[0]))
     print("  precision = {:.2f}".format(anycorrect_aprf_typ[1]))
     print("  recall    = {:.2f}".format(anycorrect_aprf_typ[2]))
     print("  f-measure = {:.2f}".format(anycorrect_aprf_typ[3]))
@@ -220,7 +220,7 @@ def main():
     print("------")
     print("unique:")
     print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_unique))/float(num_items_tok) * 100))
-    #print("  accuracy  = {:.2f}".format(unique_aprf_tok[0]))
+    print("  accuracy  = {:.2f}".format(unique_aprf_tok[0]))
     print("  precision = {:.2f}".format(unique_aprf_tok[1]))
     print("  recall    = {:.2f}".format(unique_aprf_tok[2]))
     print("  f-measure = {:.2f}".format(unique_aprf_tok[3]))
@@ -228,7 +228,7 @@ def main():
 
     print("random:")
     print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_random))/float(num_items_tok) * 100))
-    #print("  accuracy  = {:.2f}".format(random_aprf_tok[0]))
+    print("  accuracy  = {:.2f}".format(random_aprf_tok[0]))
     print("  precision = {:.2f}".format(random_aprf_tok[1]))
     print("  recall    = {:.2f}".format(random_aprf_tok[2]))
     print("  f-measure = {:.2f}".format(random_aprf_tok[3]))
@@ -236,7 +236,7 @@ def main():
 
     print("fewest:")
     print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_fewest))/float(num_items_tok) * 100))
-    #print("  accuracy  = {:.2f}".format(fewest_aprf_tok[0]))
+    print("  accuracy  = {:.2f}".format(fewest_aprf_tok[0]))
     print("  precision = {:.2f}".format(fewest_aprf_tok[1]))
     print("  recall    = {:.2f}".format(fewest_aprf_tok[2]))
     print("  f-measure = {:.2f}".format(fewest_aprf_tok[3]))
@@ -244,7 +244,7 @@ def main():
 
     print("any correct:")
     print("  coverage  = {:.2f}".format((num_items_tok - len(false_neg_anycorrect))/float(num_items_tok) * 100))
-    #print("  accuracy  = {:.2f}".format(anycorrect_aprf_tok[0]))
+    print("  accuracy  = {:.2f}".format(anycorrect_aprf_tok[0]))
     print("  precision = {:.2f}".format(anycorrect_aprf_tok[1]))
     print("  recall    = {:.2f}".format(anycorrect_aprf_tok[2]))
     print("  f-measure = {:.2f}".format(anycorrect_aprf_tok[3]))
